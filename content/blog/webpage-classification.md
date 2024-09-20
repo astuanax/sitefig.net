@@ -39,7 +39,7 @@ In this paper, the authors use a special method called the UMND1 algorithm to so
 
 Here's a simple Python example of how WSD might be implemented using the NLTK library's WordNet interface:
 
-"`python
+```
 from nltk.corpus import wordnet as wn
 from nltk.wsd import lesk
 
@@ -68,7 +68,7 @@ The authors use two categories of semantic similarity measures: **edge counting 
 
 Here's an example of calculating the Wu and Palmer similarity between two words in Python:
 
-```python
+```
 from nltk.corpus import wordnet as wn
 
 # Words to compare
@@ -95,7 +95,7 @@ The classification algorithm developed in the paper focuses on analyzing anchor 
 
 The TF-IDF variant used here calculates how representative a term is for a particular category, which is crucial for distinguishing content. A Python implementation for basic TF-IDF might look like this:
 
-"`python
+```
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Example web page anchor texts
