@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Leveraging WordNet for Web Page Classification Using Semantic Networks</title>
+		<meta name="description" content="This blog post is one of many about web page classification and information retrieval algorithms. Most papers are still relevant today, even if it was just to better understand how search engines and AI work today.">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">sitefig.net</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About us</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Leveraging WordNet for Web Page Classification Using Semantic Networks</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-09-20">20 September 2024</time></li>
+	<li><a href="/tags/seo/" class="post-tag">seo</a>, </li>
+	<li><a href="/tags/machine-learning/" class="post-tag">machine-learning</a>, </li>
+	<li><a href="/tags/webpage-classification/" class="post-tag">webpage-classification</a></li>
+</ul>
+
+<h2 id="leveraging-wordnet-for-web-page-classification-using-semantic-networks" tabindex="-1">Leveraging WordNet for Web Page Classification Using Semantic Networks <a class="header-anchor" href="#leveraging-wordnet-for-web-page-classification-using-semantic-networks">#</a></h2>
+<p>This blog post is one of many about web page classification and information retrieval algorithms. Most papers are still relevant today, even if it was just to better understand how search engines and AI work today.</p>
+<p><strong>Introduction</strong></p>
+<p>Today, we will be analysing the paper &quot;Web Page Classification Using WordNet's Linguistic Information&quot;  by Eleftherios Kozanidis, Vasiliki Simaki, and Athanasia Koumpouri, who presented an approach on how to use semantic networks and word sense disambiguation technique.</p>
+<p>Word disambiguation is still important today in information retrieval because many words have multiple meanings. For example, the word &quot;bank&quot; can refer to the side of a river or a financial institution. Without disambiguation, a search engine might give you results about riverbanks when you're looking for a bank to open an account.</p>
+<p>Word disambiguation helps search engines understand which meaning of the word you're interested in, based on the context of your search, which is where semantic networks become important.</p>
+<p>In a semantic network, words (or concepts) are connected to each other based on their meanings. For example, in such a network, the word &quot;bank&quot; would be linked to &quot;money,&quot; &quot;finance,&quot; and &quot;ATM&quot; for the financial meaning, and linked to &quot;river,&quot; &quot;water,&quot; and &quot;fishing&quot; for the riverbank meaning.</p>
+<p>Web page classification is crucial in improving information retrieval and organizing content. Automated classification methods are essential as the World Wide Web grows exponentially and content becomes a real asset again. The research paper &quot;Web Page Classification Using WordNet's Linguistic Information&quot; explores the use of semantic networks, particularly WordNet and GreekWordNet, to enhance web page classification. The paper demonstrates how linguistic data, combined with word sense disambiguation (WSD) and semantic similarity measures, can effectively categorize web pages into predefined thematic areas.</p>
+<p>In this post, we will explain the research, explain the methodology, and show how these techniques can be applied in modern applications, with some relevant code examples.</p>
+<hr>
+<h3 id="semantic-networks-and-word-sense-disambiguation" tabindex="-1">Semantic Networks and Word Sense Disambiguation <a class="header-anchor" href="#semantic-networks-and-word-sense-disambiguation">#</a></h3>
+<p>Semantic networks like WordNet represent concepts (nodes) and the relationships between them (edges). WordNet groups words into sets of cognitive synonyms called <em>synsets</em>, which express distinct concepts.</p>
+<p>WordNet is a specific type of semantic network that groups words with similar meanings into sets called synsets. Each synset represents a specific meaning or idea. For example, in WordNet, the word &quot;bank&quot; might be part of one synset that refers to a place for money and another synset that refers to the side of a river. This helps computers understand which meaning of a word you’re using.</p>
+<p>big problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.</p>
+<p>In this paper, the authors use a special method called the UMND1 algorithm to solve this. It works by looking at the meanings of the nearby words and finding the one that makes the most sense. It does this by using WordNet’s synsets (groups of words with similar meanings) to calculate how similar the words are in meaning.</p>
+<p>Here's a simple Python example of how WSD might be implemented using the NLTK library's WordNet interface:</p>
+<p>&quot;`python
+from nltk.corpus import wordnet as wn
+from nltk.wsd import lesk</p>
+<h1 id="sample-sentence-and-ambiguous-word" tabindex="-1">Sample sentence and ambiguous word <a class="header-anchor" href="#sample-sentence-and-ambiguous-word">#</a></h1>
+<p>sentence = &quot;The bank will not approve the loan.&quot;
+ambiguous_word = &quot;bank&quot;</p>
+<h1 id="word-sense-disambiguation-using-lesk-algorithm" tabindex="-1">Word sense disambiguation using lesk algorithm <a class="header-anchor" href="#word-sense-disambiguation-using-lesk-algorithm">#</a></h1>
+<p>sense = lesk(sentence.split(), ambiguous_word)
+print(f&quot;Word: {ambiguous_word}&quot;)
+print(f&quot;Disambiguated Sense: {sense}&quot;)
+print(f&quot;Definition: {sense.definition()}&quot;)</p>
+<pre><code>
+This function selects the correct meaning of &quot;bank&quot; based on the sentence. However, the paper uses a more sophisticated approach based on semantic similarity.
+
+---
+
+### Semantic Similarity Measures
+
+The authors use two categories of semantic similarity measures: **edge counting measures** and **information content measures**. These measures calculate the closeness of concepts within WordNet's hierarchy. Below are some of the key measures:
+
+1. **Wu and Palmer (wup)**: Measures similarity based on the depth of the concepts in the taxonomy.
+2. **Leacock and Chodorow (lch)**: Computes the shortest path between two concepts and normalizes it by the maximum depth.
+3. **Resnik**: Measures the shared information between two concepts.
+
+Here's an example of calculating the Wu and Palmer similarity between two words in Python:
+
+```python
+from nltk.corpus import wordnet as wn
+
+# Words to compare
+word1 = wn.synset('car.n.01')
+word2 = wn.synset('automobile.n.01')
+
+# Calculate Wu-Palmer similarity
+similarity = word1.wup_similarity(word2)
+print(f&quot;Wu-Palmer Similarity between {word1.name()} and {word2.name()}: {similarity}&quot;)
+</code></pre>
+<p>In the study, <strong>co-occurring synsets</strong> provided better classification results, especially when combined with these semantic measures. For example, using the <strong>Jiang and Conrath</strong> similarity measure improved disambiguation accuracy in the experiments.</p>
+<hr>
+<h3 id="web-page-classification-algorithm" tabindex="-1">Web Page Classification Algorithm <a class="header-anchor" href="#web-page-classification-algorithm">#</a></h3>
+<p>The classification algorithm developed in the paper focuses on analyzing anchor text (the clickable text of a hyperlink), as it often provides a concise summary of the linked page's content. The steps involved are:</p>
+<ol>
+<li><strong>Extract anchor text</strong> from the web page.</li>
+<li><strong>Disambiguate terms</strong> using WSD to find the most accurate sense for each word.</li>
+<li><strong>Calculate feature weights</strong> using a variant of the TF-IDF (Term Frequency-Inverse Document Frequency) algorithm to determine the importance of terms.</li>
+<li><strong>Categorize the page</strong> based on the predefined thematic areas using the processed features.</li>
+</ol>
+<p>The TF-IDF variant used here calculates how representative a term is for a particular category, which is crucial for distinguishing content. A Python implementation for basic TF-IDF might look like this:</p>
+<p>&quot;`python
+from sklearn.feature_extraction.text import TfidfVectorizer</p>
+<h1 id="example-web-page-anchor-texts" tabindex="-1">Example web page anchor texts <a class="header-anchor" href="#example-web-page-anchor-texts">#</a></h1>
+<p>documents = [
+&quot;The car is fast and reliable.&quot;,
+&quot;Automobile manufacturing is a key industry.&quot;,
+&quot;Banks offer loans for buying cars.&quot;
+]</p>
+<h1 id="initialize-tf-idf-vectorizer" tabindex="-1">Initialize TF-IDF Vectorizer <a class="header-anchor" href="#initialize-tf-idf-vectorizer">#</a></h1>
+<p>vectorizer = TfidfVectorizer()
+tfidf_matrix = vectorizer.fit_transform(documents)</p>
+<h1 id="display-tf-idf-scores" tabindex="-1">Display TF-IDF scores <a class="header-anchor" href="#display-tf-idf-scores">#</a></h1>
+<p>feature_names = vectorizer.get_feature_names_out()
+for doc_id, doc in enumerate(documents):
+print(f&quot;\nDocument {doc_id+1}:&quot;)
+for word_id in tfidf_matrix[doc_id].nonzero()[1]:
+print(f&quot;{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}&quot;)</p>
+<pre><code>
+This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like &quot;car&quot; and &quot;automobile&quot; in automotive-related documents.
+
+---
+
+### Experimental Results
+
+The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using **co-occurring WordNet synsets**, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.
+
+Key findings include:
+- **Co-occurring synsets** yielded the best classification results.
+- Using **disambiguated terms** improved the precision of thematic classification.
+- The performance was enhanced by combining different similarity measures and using WordNet's semantic hierarchy.
+
+---
+
+### Conclusion
+
+This research demonstrates the power of integrating semantic networks like WordNet with traditional machine-learning techniques for web page classification. By disambiguating word senses and calculating semantic similarity, the classifier provides more accurate results than conventional keyword-based methods.
+
+Improvements could include:
+Expanding the training data for languages like Greek.
+Refining the disambiguation process.
+Incorporating modern deep learning techniques for better performance.
+Nevertheless, leveraging linguistic data for more intelligent web page categorization remains highly relevant in today's AI-driven world.
+
+---
+
+**References**
+
+[1] Kozanidis, E., Simaki, V., Koumpouri, A. *Web Page Classification Using WordNet's Linguistic Information*.
+[2] Fellbaum, Ch. (1998). *WordNet: An Electronic Lexical Database*. MIT Press.
+[3] Qi, X., &amp; Davison, B. (2009). *Web Page Classification: Features and Algorithms*. ACM Computing Surveys.
+
+</code></pre>
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/webpage-classification/` was built on 2024-09-20T09:01:40.257Z -->
+	</body>
+</html>

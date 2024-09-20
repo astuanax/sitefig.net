@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
+	<title>sitefig.net</title>
+	<subtitle>Sitefig blog</subtitle>
+	<link href="https://ww.sitefig.net/feed/feed.xml" rel="self"/>
+	<link href="https://ww.sitefig.net/"/>
+	<updated>2024-09-20T00:00:00Z</updated>
+	<id>https://ww.sitefig.net/</id>
+	<author>
+		<name>Len Dierickx</name>
+		<email>len.dierickx@sitefig.eu</email>
+	</author>
+	
+	<entry>
+		<title>Leveraging WordNet for Web Page Classification Using Semantic Networks</title>
+		<link href="https://ww.sitefig.net/blog/webpage-classification/"/>
+		<updated>2024-09-20T00:00:00Z</updated>
+		<id>https://ww.sitefig.net/blog/webpage-classification/</id>
+		<content type="html">&lt;h2 id=&quot;leveraging-wordnet-for-web-page-classification-using-semantic-networks&quot; tabindex=&quot;-1&quot;&gt;Leveraging WordNet for Web Page Classification Using Semantic Networks &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This blog post is one of many about web page classification and information retrieval algorithms. Most papers are still relevant today, even if it was just to better understand how search engines and AI work today.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Today, we will be analysing the paper &amp;quot;Web Page Classification Using WordNet&#39;s Linguistic Information&amp;quot;  by Eleftherios Kozanidis, Vasiliki Simaki, and Athanasia Koumpouri, who presented an approach on how to use semantic networks and word sense disambiguation technique.&lt;/p&gt;
+&lt;p&gt;Word disambiguation is still important today in information retrieval because many words have multiple meanings. For example, the word &amp;quot;bank&amp;quot; can refer to the side of a river or a financial institution. Without disambiguation, a search engine might give you results about riverbanks when you&#39;re looking for a bank to open an account.&lt;/p&gt;
+&lt;p&gt;Word disambiguation helps search engines understand which meaning of the word you&#39;re interested in, based on the context of your search, which is where semantic networks become important.&lt;/p&gt;
+&lt;p&gt;In a semantic network, words (or concepts) are connected to each other based on their meanings. For example, in such a network, the word &amp;quot;bank&amp;quot; would be linked to &amp;quot;money,&amp;quot; &amp;quot;finance,&amp;quot; and &amp;quot;ATM&amp;quot; for the financial meaning, and linked to &amp;quot;river,&amp;quot; &amp;quot;water,&amp;quot; and &amp;quot;fishing&amp;quot; for the riverbank meaning.&lt;/p&gt;
+&lt;p&gt;Web page classification is crucial in improving information retrieval and organizing content. Automated classification methods are essential as the World Wide Web grows exponentially and content becomes a real asset again. The research paper &amp;quot;Web Page Classification Using WordNet&#39;s Linguistic Information&amp;quot; explores the use of semantic networks, particularly WordNet and GreekWordNet, to enhance web page classification. The paper demonstrates how linguistic data, combined with word sense disambiguation (WSD) and semantic similarity measures, can effectively categorize web pages into predefined thematic areas.&lt;/p&gt;
+&lt;p&gt;In this post, we will explain the research, explain the methodology, and show how these techniques can be applied in modern applications, with some relevant code examples.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;semantic-networks-and-word-sense-disambiguation&quot; tabindex=&quot;-1&quot;&gt;Semantic Networks and Word Sense Disambiguation &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Semantic networks like WordNet represent concepts (nodes) and the relationships between them (edges). WordNet groups words into sets of cognitive synonyms called &lt;em&gt;synsets&lt;/em&gt;, which express distinct concepts.&lt;/p&gt;
+&lt;p&gt;WordNet is a specific type of semantic network that groups words with similar meanings into sets called synsets. Each synset represents a specific meaning or idea. For example, in WordNet, the word &amp;quot;bank&amp;quot; might be part of one synset that refers to a place for money and another synset that refers to the side of a river. This helps computers understand which meaning of a word you’re using.&lt;/p&gt;
+&lt;p&gt;big problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.&lt;/p&gt;
+&lt;p&gt;In this paper, the authors use a special method called the UMND1 algorithm to solve this. It works by looking at the meanings of the nearby words and finding the one that makes the most sense. It does this by using WordNet’s synsets (groups of words with similar meanings) to calculate how similar the words are in meaning.&lt;/p&gt;
+&lt;p&gt;Here&#39;s a simple Python example of how WSD might be implemented using the NLTK library&#39;s WordNet interface:&lt;/p&gt;
+&lt;p&gt;&amp;quot;`python
+from nltk.corpus import wordnet as wn
+from nltk.wsd import lesk&lt;/p&gt;
+&lt;h1 id=&quot;sample-sentence-and-ambiguous-word&quot; tabindex=&quot;-1&quot;&gt;Sample sentence and ambiguous word &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;sentence = &amp;quot;The bank will not approve the loan.&amp;quot;
+ambiguous_word = &amp;quot;bank&amp;quot;&lt;/p&gt;
+&lt;h1 id=&quot;word-sense-disambiguation-using-lesk-algorithm&quot; tabindex=&quot;-1&quot;&gt;Word sense disambiguation using lesk algorithm &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;sense = lesk(sentence.split(), ambiguous_word)
+print(f&amp;quot;Word: {ambiguous_word}&amp;quot;)
+print(f&amp;quot;Disambiguated Sense: {sense}&amp;quot;)
+print(f&amp;quot;Definition: {sense.definition()}&amp;quot;)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+This function selects the correct meaning of &amp;quot;bank&amp;quot; based on the sentence. However, the paper uses a more sophisticated approach based on semantic similarity.
+
+---
+
+### Semantic Similarity Measures
+
+The authors use two categories of semantic similarity measures: **edge counting measures** and **information content measures**. These measures calculate the closeness of concepts within WordNet&#39;s hierarchy. Below are some of the key measures:
+
+1. **Wu and Palmer (wup)**: Measures similarity based on the depth of the concepts in the taxonomy.
+2. **Leacock and Chodorow (lch)**: Computes the shortest path between two concepts and normalizes it by the maximum depth.
+3. **Resnik**: Measures the shared information between two concepts.
+
+Here&#39;s an example of calculating the Wu and Palmer similarity between two words in Python:
+
+```python
+from nltk.corpus import wordnet as wn
+
+# Words to compare
+word1 = wn.synset(&#39;car.n.01&#39;)
+word2 = wn.synset(&#39;automobile.n.01&#39;)
+
+# Calculate Wu-Palmer similarity
+similarity = word1.wup_similarity(word2)
+print(f&amp;quot;Wu-Palmer Similarity between {word1.name()} and {word2.name()}: {similarity}&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the study, &lt;strong&gt;co-occurring synsets&lt;/strong&gt; provided better classification results, especially when combined with these semantic measures. For example, using the &lt;strong&gt;Jiang and Conrath&lt;/strong&gt; similarity measure improved disambiguation accuracy in the experiments.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;web-page-classification-algorithm&quot; tabindex=&quot;-1&quot;&gt;Web Page Classification Algorithm &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The classification algorithm developed in the paper focuses on analyzing anchor text (the clickable text of a hyperlink), as it often provides a concise summary of the linked page&#39;s content. The steps involved are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Extract anchor text&lt;/strong&gt; from the web page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disambiguate terms&lt;/strong&gt; using WSD to find the most accurate sense for each word.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Calculate feature weights&lt;/strong&gt; using a variant of the TF-IDF (Term Frequency-Inverse Document Frequency) algorithm to determine the importance of terms.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categorize the page&lt;/strong&gt; based on the predefined thematic areas using the processed features.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The TF-IDF variant used here calculates how representative a term is for a particular category, which is crucial for distinguishing content. A Python implementation for basic TF-IDF might look like this:&lt;/p&gt;
+&lt;p&gt;&amp;quot;`python
+from sklearn.feature_extraction.text import TfidfVectorizer&lt;/p&gt;
+&lt;h1 id=&quot;example-web-page-anchor-texts&quot; tabindex=&quot;-1&quot;&gt;Example web page anchor texts &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;documents = [
+&amp;quot;The car is fast and reliable.&amp;quot;,
+&amp;quot;Automobile manufacturing is a key industry.&amp;quot;,
+&amp;quot;Banks offer loans for buying cars.&amp;quot;
+]&lt;/p&gt;
+&lt;h1 id=&quot;initialize-tf-idf-vectorizer&quot; tabindex=&quot;-1&quot;&gt;Initialize TF-IDF Vectorizer &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;vectorizer = TfidfVectorizer()
+tfidf_matrix = vectorizer.fit_transform(documents)&lt;/p&gt;
+&lt;h1 id=&quot;display-tf-idf-scores&quot; tabindex=&quot;-1&quot;&gt;Display TF-IDF scores &lt;a class=&quot;header-anchor&quot; href=&quot;https://ww.sitefig.net/blog/webpage-classification/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;feature_names = vectorizer.get_feature_names_out()
+for doc_id, doc in enumerate(documents):
+print(f&amp;quot;&#92;nDocument {doc_id+1}:&amp;quot;)
+for word_id in tfidf_matrix[doc_id].nonzero()[1]:
+print(f&amp;quot;{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}&amp;quot;)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like &amp;quot;car&amp;quot; and &amp;quot;automobile&amp;quot; in automotive-related documents.
+
+---
+
+### Experimental Results
+
+The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using **co-occurring WordNet synsets**, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.
+
+Key findings include:
+- **Co-occurring synsets** yielded the best classification results.
+- Using **disambiguated terms** improved the precision of thematic classification.
+- The performance was enhanced by combining different similarity measures and using WordNet&#39;s semantic hierarchy.
+
+---
+
+### Conclusion
+
+This research demonstrates the power of integrating semantic networks like WordNet with traditional machine-learning techniques for web page classification. By disambiguating word senses and calculating semantic similarity, the classifier provides more accurate results than conventional keyword-based methods.
+
+Improvements could include:
+Expanding the training data for languages like Greek.
+Refining the disambiguation process.
+Incorporating modern deep learning techniques for better performance.
+Nevertheless, leveraging linguistic data for more intelligent web page categorization remains highly relevant in today&#39;s AI-driven world.
+
+---
+
+**References**
+
+[1] Kozanidis, E., Simaki, V., Koumpouri, A. *Web Page Classification Using WordNet&#39;s Linguistic Information*.
+[2] Fellbaum, Ch. (1998). *WordNet: An Electronic Lexical Database*. MIT Press.
+[3] Qi, X., &amp;amp; Davison, B. (2009). *Web Page Classification: Features and Algorithms*. ACM Computing Surveys.
+
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+</feed>
