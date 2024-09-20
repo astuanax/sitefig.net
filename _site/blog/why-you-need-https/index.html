@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Why you need HTTPS</title>
+		<meta name="description" content="Sitefig blog">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">sitefig.net</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About us</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Why you need HTTPS</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-11-03">03 November 2022</time></li>
+	<li><a href="/tags/tech/" class="post-tag">tech</a>, </li>
+	<li><a href="/tags/privacy/" class="post-tag">privacy</a></li>
+</ul>
+
+<h3 id="everything-you-need-to-know-about-securing-your-website" tabindex="-1">Everything you need to know about securing your website <a href="%22#everything-you-need-to-know-about-securing-your-website%22">#</a> <a class="header-anchor" href="#everything-you-need-to-know-about-securing-your-website">#</a></h3>
+<p>All websites these days should use HTTPS (Hypertext Transfer Protocol Secure).\nYes, there was a time TLS (Transport Layer Security) certificates were unnecessary, but today you really cannot go without them. Here is why!
+<a href="%22https://nl.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure%22">HTTPS</a> is the encrypted version of HTTP (Hypertext Transfer Protocol), the protocol used for transferring data to your browsers. The HTTPS protocol relies on a TLS certificate to encrypt all the data between your computer and the server. As a result, HTTPS prevents anyone from tampering with the data and ensures content integrity, and it works both ways: when receiving and sending data such as usernames, passwords and visa card numbers.
+The benefits of having a secured website far outweigh the downsides, which range from personal data loss, website impersonation attacks and lawsuits brought to you by any DPA (Data Protection Authority) in Europe.
+For example, in 2021, <a href="%22https://edpb.europa.eu/news/national-news/2021/dutch-dpa-orthodontic-practice-fined-unsecured-patient-website_en%22">the Dutch DPA imposed a €12,000 fine</a> on an orthodontic practice for allowing new patients to register on an unsecured website.
+We can obtain TLS certificates for free, which means paying that hefty price was unnecessary.</p>
+<h3 id="the-benefits-of-a-secure-website" tabindex="-1">The benefits of a secure website <a href="%22#the-benefits-of-a-secure-website%22">#</a> <a class="header-anchor" href="#the-benefits-of-a-secure-website">#</a></h3>
+<h4 id="security" tabindex="-1">Security <a href="%22#security%22">#</a> <a class="header-anchor" href="#security">#</a></h4>
+<p>With HTTPS, intruders can’t manipulate or passively listen in on the communications between your site and your users. An HTTPS connection provides additional security and privacy for your company and customers.
+The encryption makes it practically impossible to eavesdrop or snoop on any communication. While your customers are online, browsing or entering sensitive data on your website, nobody will be able to track what they are doing.
+Additionally, the company operating the website can be sure that no 3rd party is making changes to the website and the customer effectively sees the website as expected. You might be surprised how many companies have injected marketing messages, advertising, script and images onto pages browsed on open WiFi networks. It happened pretty often.
+Luckily the need for privacy increased, and TLS certificates became much more common. Most of the <a href="%22https://trends.builtwith.com/ssl%22">websites in the top 1 million are now using HTTPS</a> .
+The certificate is also a means of authentication and proves that your user sees and uses the intended website.
+<img src="%22/img/J4_aFtD2N6-300.png%22" alt="alt"></p>
+<h4 id="privacy-and-trust" tabindex="-1">Privacy and trust <a href="%22#privacy-and-trust%22">#</a> <a class="header-anchor" href="#privacy-and-trust">#</a></h4>
+<p>Besides security for your company and your customer, privacy concerns have become the focal point of several new directives and legislation efforts worldwide.
+We already mentioned the need to use HTTP to avoid anyone snooping n the communication between your website and the customers’ browser. Here is why that is important.
+In 2021 a complaint was lodged to the Dutch DPA about the website of an orthodontic practice. The registration forms on the website in question asked for all kinds of personal data about the patient’s health.
+Unfortunately, the form was not on a secure connection, and it potentially exposed the data to anyone who had access to the network.
+As the orthodontic practice had many patients and a large number of under-aged patients, the DPA decided to impose a hefty fine for not complying with the GDPR directive.
+If you have forms on your website on an insecure connection (HTTP), the transmitted data can potentially be tracked by hackers.
+This kind of data breach is difficult to detect, but you are still liable and need to report any data breaches in the next 72 hours as a company as per the GDPR directive.
+The GDPR directive states that data processing must be handled in such a way as to ensure appropriate security, integrity, and confidentiality (e.g. by using encryption).
+The GDPR documents, here and here, explicitly define the need for encryption, though no article expressly documents the usage of a TLS certificate on your website.
+So, in theory, you don’t need it. In practice, though, it is strongly recommended as it conveys trust and keeps prying eyes away.</p>
+<h3 id="seo-and-google" tabindex="-1">SEO and Google <a href="%22#seo-and-google%22">#</a> <a class="header-anchor" href="#seo-and-google">#</a></h3>
+<p>Before GDPR, security and data breaches were on everybody’s radar, SEO improvements were the main benefit of having a secure website. Over the last ten years, Google made several efforts to push SSL certificates, and today it is the defacto standard for websites.</p>
+<h4 id="a-weak-ranking-signal" tabindex="-1">A weak ranking signal <a href="%22#a-weak-ranking-signal%22">#</a> <a class="header-anchor" href="#a-weak-ranking-signal">#</a></h4>
+<p>Earlier in 2014, Google already documented that HTTPS was a weak signal which could improve your position on the SERPs.\n<a href="%22https://developers.google.com/search/blog/2014/08/https-as-ranking-signal%22">Developers google : https as ranking signal</a>
+Having a TLS certificate does not mean your website automatically gets on the first page of Google. But if you are competing for a specific keyword, and your competitor’s website is not on HTTPS, it might just be the tiebreaker.</p>
+<h4 id="google-chrome-thinks-your-website-is-not-secure" tabindex="-1">Google Chrome thinks your website is “not secure” <a href="%22#google-chrome-thinks-your-website-is-%E2%80%9Cnot-secure%E2%80%9D%22">#</a> <a class="header-anchor" href="#google-chrome-thinks-your-website-is-not-secure">#</a></h4>
+<p>Insecure website showing &quot;Not secured&quot; in the URL bar of the brwoser.\nIn July 2018, Google Chrome started labelling websites lacking an SSL certificate as “not secure”. In addition to Chrome, other browsers have implemented similar notifications for sites without valid SSL certificates.
+In other words, Google actively pushes websites to set up HTTPS. And since most if not all browsers are these days based on Chrome, it is the defacto standard.
+Trust is still important for whether customers purchase goods online or not. Last year the UN reported that at least 30 % of users are unwilling to buy online due to a lack of trust. So if your website is actively labelled as untrustworthy, it isn’t going to do you any good.</p>
+<h3 id="downsides" tabindex="-1">Downsides? <a href="%22#downsides%3F%22">#</a> <a class="header-anchor" href="#downsides">#</a></h3>
+<p>Did we mention that the cost of obtaining a certificate is free?\nIf you’d like to win an argument with someone, visit <a href="%22https://doesmysiteneedhttps.com/%22">https://doesmysiteneedhttps.com/</a></p>
+<h3 id="how-to-set-up-https-for-your-website" tabindex="-1">How to set up HTTPS for your website? <a href="%22#how-to-set-up-https-for-your-website%3F%22">#</a> <a class="header-anchor" href="#how-to-set-up-https-for-your-website">#</a></h3>
+<p>Today, the easiest way to enable HTTPS is to move your DNS to Cloudflare. Unfortunately, that does not mean the website is entirely secure.
+The webserver running the website still requires a TLS certificate to enable traffic between Cloudflare and your server to be encrypted.
+Cloudflare does provide certificates to fix that issue, but there are other options such as Let’s encrypt or Zerrossl.</p>
+<h3 id="how-to-check-for-potential-mistakes" tabindex="-1">How to check for potential mistakes? <a href="%22#how-to-check-for-potential-mistakes%3F%22">#</a> <a class="header-anchor" href="#how-to-check-for-potential-mistakes">#</a></h3>
+<p>Once you have your website set up or migrated to HTTPS, it is easy to make mistakes.
+It might be that a redirect points to an HTTP URL, an incorrectly configured subdomain is still on HTTP, invalid canonical tags, or your SSL certificate is simply out of date.
+There are plenty of mistakes that can happen, and it is easy to check for common SSL mistakes.</p>
+<h4 id="check-for-http-pages-and-links" tabindex="-1">Check for HTTP pages and links: <a href="%22#check-for-http-pages-and-links%3A%22">#</a> <a class="header-anchor" href="#check-for-http-pages-and-links">#</a></h4>
+<p><strong>With Google operators</strong>
+You can make your search very specific. You can search for all pages on your website indexed by Google that use the HTTP protocol in the URL:
+Try it: “<a href="%22https://www.google.com/search?q=site%3Asitefig.eu+inurl%3Ahttp%3A%2F%2F%22">site:sitefig.eu inurl:http://</a>”
+<img src="%22/img/ykgOGKc5Av-300.png%22" alt="alt">
+<strong>A free account with Sitefig</strong>
+Sign up for a free Sitefig account and you’ll get access to all the broken links and resources on your website. Each page will be tested to ensure that it redirects to an HTTPS page.
+<img src="%22/img/r2hR0iNlW4-300.png%22" alt="alt">
+&quot;</p>
+
+<ul class="links-nextprev"><li>Next: <a href="/blog/pii-data-leaks/">PII Data Leaks: A Dangerous Situation</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/why-you-need-https/` was built on 2024-09-20T12:44:22.225Z -->
+	</body>
+</html>

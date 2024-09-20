@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Challenges of Automated Accessibility Testing for Business Owners</title>
+		<meta name="description" content="Sitefig blog">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">sitefig.net</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About us</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Challenges of Automated Accessibility Testing for Business Owners</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2023-03-03">03 March 2023</time></li>
+	<li><a href="/tags/accessibility/" class="post-tag">accessibility</a>, </li>
+	<li><a href="/tags/tech/" class="post-tag">tech</a></li>
+</ul>
+
+<p>Accessibility is an essential aspect of web design and development. It ensures that everyone, regardless of customers' physical or cognitive abilities, can use and interact with a website or application.</p>
+<p>Unfortunately, many <strong>websites still fail to meet basic accessibility standards</strong>, making it difficult or impossible for people with disabilities to access information or services.</p>
+<p>Accessibility is not only a moral and ethical imperative but also a <strong>legal requirement in many countries, including the United States</strong>.</p>
+<p>Failure to comply with accessibility standards can result in lawsuits and loss of business. In addition, accessibility testing ensures that all users can access and benefit from digital content, regardless of their abilities.</p>
+<p>In this blog post, we'll explore **what automated accessibility testing is, its benefits, and some of the challenges associated with this testing technique. **</p>
+<p>We'll also discuss some best practices for implementing automated accessibility testing and ensuring your website meets the latest accessibility guidelines.</p>
+<h2 id="explanation-of-automated-accessibility-testing" tabindex="-1">Explanation of automated accessibility testing <a href="#explanation-of-automated-accessibility-testing">#</a> <a class="header-anchor" href="#explanation-of-automated-accessibility-testing">#</a></h2>
+<p>Automated accessibility testing is a technique used to <strong>determine the accessibility level</strong> of a website or application automatically.</p>
+<p>In simpler terms, it involves using specialised <strong>software to scan web pages and identify accessibility issues</strong>.</p>
+<p>The software used for automated accessibility testing can simulate the actions of a person with disabilities and identify issues that might hinder or make it impossible for such individuals to use the website or application effectively.</p>
+<p>Automated accessibility testing is an efficient and reliable way to identify and fix accessibility issues on your website or application. By using automated tools, developers can ensure that their websites are accessible to users with disabilities, including those with visual, hearing, and mobility impairments.</p>
+<p>Additionally, automated accessibility testing can help you identify issues you might otherwise miss, ensuring that your website or application is inclusive and accessible to all users.</p>
+<p>The benefits of automated accessibility testing are numerous.</p>
+<p>For one, it saves time and resources. Instead of manually testing every aspect of your website or application, you can use automated tools to identify accessibility issues quickly and efficiently. This can save you time and reduce the costs associated with manual accessibility testing.</p>
+<p>Automated accessibility testing is more consistent and accurate than manual testing, ensuring all issues are identified and fixed.</p>
+<p>Finally, automated accessibility testing can help you meet legal requirements for accessibility, ensuring that your website or application complies with accessibility guidelines and regulations.</p>
+<h2 id="importance-of-automated-accessibility-testing" tabindex="-1">Importance of automated accessibility testing <a href="#importance-of-automated-accessibility-testing">#</a> <a class="header-anchor" href="#importance-of-automated-accessibility-testing">#</a></h2>
+<p>Ensuring accessibility is an important aspect of web development and design, even though it is not legally binding in the European Union.</p>
+<p>However, this does not diminish the significance of accessibility for European businesses. Failing to provide accessible websites and applications can lead to the exclusion of individuals with disabilities and hinder their ability to access information and services, potentially leading to reputational damage for your brand.</p>
+<p>Automated accessibility testing can help European businesses identify and fix accessibility issues on their websites and applications, ensuring they are inclusive and accessible to all users. By catering to the needs of individuals with disabilities, businesses can increase customer satisfaction, loyalty, and, ultimately, their revenue. In addition, it demonstrates a commitment to inclusivity and social responsibility, which can enhance the business's reputation.</p>
+<p>Moreover, providing accessible websites and applications can also give businesses a competitive advantage. With the growing awareness and demand for inclusivity and accessibility, companies prioritising these values will likely be more attractive to a broader range of customers.</p>
+<p>Therefore, even though accessibility is only legally binding for some sectors in the EU, it remains an important consideration for businesses that aim to create inclusive and accessible websites and applications that cater to the needs of all users. Automated accessibility testing can help European companies to achieve this goal and improve customer satisfaction, loyalty, and overall reputation.</p>
+<h2 id="benefits-of-automated-accessibility-testing" tabindex="-1">Benefits of automated accessibility testing <a href="#benefits-of-automated-accessibility-testing">#</a> <a class="header-anchor" href="#benefits-of-automated-accessibility-testing">#</a></h2>
+<p>Automated accessibility testing offers numerous benefits for European businesses. By utilising specialised software to scan web pages and identify accessibility issues, companies can save time and resources while ensuring that their websites and applications are accessible to users with disabilities.</p>
+<p>One significant benefit of automated accessibility testing is its ability to improve customer satisfaction and loyalty. By creating inclusive and accessible websites and applications, businesses can cater to the needs of all users, including those with disabilities. This can help build brand trust and loyalty, increasing sales and repeat business.</p>
+<p>In addition, automated accessibility testing can help businesses avoid legal issues. Although accessibility is not legally binding in the EU, it is still recommended and expected to become legally binding soon. By implementing automated accessibility testing, businesses can get ahead of the curve and avoid potential legal issues.</p>
+<p>Furthermore, automated accessibility testing can help businesses expand their customer base. People with disabilities make up a significant portion of the population. By ensuring that their websites and applications are accessible to this group, businesses can reach a wider audience, potentially leading to increased revenue and growth.</p>
+<p>Finally, automated accessibility testing can help businesses demonstrate their commitment to inclusivity and social responsibility. By prioritising accessibility, companies can show that they are committed to creating a more inclusive and equitable society, which can enhance their reputation and attract new customers who value these values.</p>
+<p>In summary, automated accessibility testing offers a range of benefits for European businesses, including improved customer satisfaction and loyalty, legal compliance, an expanded customer base, and a demonstration of their commitment to inclusivity and social responsibility.</p>
+<h2 id="what-is-automated-accessibility-testing" tabindex="-1">What is Automated Accessibility Testing? <a href="#what-is-automated-accessibility-testing%3F">#</a> <a class="header-anchor" href="#what-is-automated-accessibility-testing">#</a></h2>
+<p>This section will delve into what automated accessibility testing is and how it works. We will explore the different types of automated accessibility testing and discuss their advantages and limitations. By understanding what automated accessibility testing is and how it works, you can make informed decisions about implementing it in your business and ensuring that your websites and applications are inclusive and accessible to all users.</p>
+<h3 id="explanation-of-automated-accessibility-testing-1" tabindex="-1">Explanation of automated accessibility testing <a href="#explanation-of-automated-accessibility-testing-1">#</a> <a class="header-anchor" href="#explanation-of-automated-accessibility-testing-1">#</a></h3>
+<p>Automated accessibility testing involves using specialised software to scan web pages and identify accessibility issues. These tools use a combination of algorithms and heuristics to analyse web pages and identify potential problems that may impact users with disabilities. However, there are technical challenges involved in building these tools, as web development technologies are constantly evolving, and new accessibility issues may arise as a result.</p>
+<p>Furthermore, there is a lack of knowledge among developers when it comes to automated accessibility testing. Many developers are unfamiliar with the technical aspects of accessibility testing or do not have the time or resources to manually test their websites and applications for accessibility. This can lead to accessibility issues going unnoticed and result in the exclusion of individuals with disabilities.</p>
+<p>Automated accessibility testing helps to address these challenges by providing developers with a way to automate the testing process and identify potential accessibility issues automatically. This can save time and resources while ensuring that websites and applications are accessible to users with disabilities.</p>
+<p>However, it's essential to note that automated accessibility testing is imperfect and has limitations. While these tools can identify many accessibility issues, there are some issues that only human testing can detect. Automated testing should, therefore, be used as a supplement to manual testing rather than a replacement.</p>
+<p>In summary, automated accessibility testing is a valuable tool for identifying potential accessibility issues automatically. However, there are technical challenges involved in building these tools, and there is a lack of developer knowledge regarding automated accessibility testing. Therefore, it's essential to recognise the limitations of automated testing and supplement it with manual testing to ensure that websites and applications are inclusive and accessible to all users.</p>
+<h3 id="types-of-automated-accessibility-testing" tabindex="-1">Types of automated accessibility testing <a href="#types-of-automated-accessibility-testing">#</a> <a class="header-anchor" href="#types-of-automated-accessibility-testing">#</a></h3>
+<p>There are several types of automated accessibility testing that businesses can use to ensure that their websites and applications are accessible to users with disabilities. Some examples include: Static Analysis: This type of testing involves analysing the code and content of web pages to identify accessibility issues. Static analysis tools can identify problems like missing alt text for images, incorrect heading structure, and missing form labels.</p>
+<p>Dynamic Analysis: This type of testing involves analysing the behaviour of web pages to identify accessibility issues. Dynamic analysis tools can identify issues like keyboard accessibility, focus management, and colour contrast.</p>
+<p>Hybrid Analysis: This type of testing combines static and dynamic analysis to provide a more comprehensive assessment of web page accessibility. Hybrid analysis tools can identify a wide range of accessibility issues, including those that are difficult to locate using either static or dynamic analysis alone.</p>
+<p>Visual Regression Testing: This type of testing involves comparing screenshots of web pages over time to identify changes that may impact accessibility. Visual regression testing tools can help businesses to ensure that changes to their websites and applications do not negatively impact accessibility.</p>
+<p>By using a combination of these automated accessibility testing tools, businesses can ensure that their websites and applications are accessible to users with disabilities. It's important to note that no single agency or approach can provide a complete assessment of accessibility, and manual testing is also necessary to supplement automated testing.</p>
+<h3 id="benefits-of-automated-accessibility-testing-1" tabindex="-1">Benefits of Automated Accessibility Testing <a href="#benefits-of-automated-accessibility-testing-1">#</a> <a class="header-anchor" href="#benefits-of-automated-accessibility-testing-1">#</a></h3>
+<p>Automated accessibility testing can benefit businesses and organisations of all sizes. By identifying potential accessibility issues automatically, these tools can help businesses to save time and resources while ensuring that their websites and applications are accessible to users with disabilities.</p>
+<p>In this section, we will explore the benefits of automated accessibility testing in more detail, including how it can improve user experience, reduce legal risks, and enhance brand reputation. We will also discuss how automated accessibility testing can help businesses to meet accessibility standards and guidelines and provide a more inclusive experience for all users.</p>
+<h3 id="time-saving" tabindex="-1">Time-saving <a href="#time-saving">#</a> <a class="header-anchor" href="#time-saving">#</a></h3>
+<p>One of the most significant benefits of automated accessibility testing is that it can save businesses time and resources. In traditional accessibility testing methods, developers or testers would need to manually test each web page for accessibility, which can be time-consuming and expensive. With automated accessibility testing, the testing process can be automated and streamlined, allowing businesses to identify potential accessibility issues quickly and efficiently.</p>
+<p>Automated accessibility testing tools can scan web pages and identify accessibility issues in a matter of seconds or minutes, depending on the size of the website or application. This allows developers to identify and fix potential accessibility issues early in the development process rather than waiting until the end of the project, when issues can be more costly and time-consuming to fix.</p>
+<p>In addition, automated accessibility testing can help businesses to save money by reducing the need for manual testing or expensive accessibility consultants. Using automated testing tools, companies can ensure their websites and applications are accessible without relying on external consultants or dedicating internal resources to manual testing.</p>
+<p>Overall, the time-saving benefits of automated accessibility testing can help businesses to reduce costs, improve development timelines, and ensure that their websites and applications are accessible to users with disabilities. By using automated testing tools, companies can focus on creating a more inclusive experience for all users while saving time and resources.</p>
+<h3 id="cost-effective" tabindex="-1">Cost-effective <a href="#cost-effective">#</a> <a class="header-anchor" href="#cost-effective">#</a></h3>
+<p>Automated accessibility testing can also bring significant cost-saving benefits to businesses. In addition to saving time on testing and development, automated accessibility testing tools can help companies to reduce costs associated with manual testing, accessibility audits, and potential legal fees.</p>
+<p>For example, manual accessibility testing can be expensive, particularly for large websites or applications. Hiring accessibility consultants or testers to manually test each web page can cost thousands of dollars and take weeks or even months. Automated accessibility testing, on the other hand, can scan the entire website in hours or days at a much lower cost.</p>
+<p>In recent years, there has been a significant increase in the number of accessibility lawsuits filed against businesses, particularly in industries like finance, healthcare, and education. By ensuring that their websites and applications are accessible from the outset, companies can reduce the risk of being sued for accessibility violations. In addition, automated accessibility testing can help businesses to avoid costly legal fees associated with accessibility lawsuits.</p>
+<p>Furthermore, automated accessibility testing can also help businesses to reduce costs associated with fixing accessibility issues after launch. Fixing accessibility issues after launch can be much more expensive than addressing them early in development. With automated accessibility testing, businesses can identify and resolve potential accessibility issues early on before they become more costly.</p>
+<p>Overall, the cost-saving benefits of automated accessibility testing can help businesses to reduce expenses associated with manual testing, accessibility audits, and legal fees while also improving the accessibility of their websites and applications. By investing in automated accessibility testing tools, businesses can save money while ensuring their digital properties are accessible to users with disabilities.</p>
+<h3 id="better-coverage" tabindex="-1">Better coverage <a href="#better-coverage">#</a> <a class="header-anchor" href="#better-coverage">#</a></h3>
+<p>Another benefit of automated accessibility testing is that it can provide better coverage of accessibility issues than manual testing. Automated testing tools can scan every website or application page for accessibility issues, whereas manual testing may only cover a limited number of pages or components.</p>
+<p>Automated testing tools can also help to identify accessibility issues that may be difficult or impossible to detect manually, such as issues related to colour contrast, keyboard accessibility, and ARIA attributes. These tools can also see problems that may be difficult to reproduce consistently, such as issues related to screen-reader compatibility or assistive technology.</p>
+<p>For example, an automated accessibility testing tool could identify a low-contrast button on a web page that may be difficult for users with visual impairments to see. In contrast, a manual tester may not have noticed this issue, mainly if they were not explicitly looking for it. In addition, automated testing tools can provide more consistent and repeatable results than manual testing, as they use a standardised set of rules and guidelines to test for accessibility. This can help to ensure that accessibility issues are identified and addressed consistently across all pages and components of a website or application.</p>
+<p>Overall, the better coverage aspect of automated accessibility testing can help businesses to identify a broader range of accessibility issues, including those that may be difficult or impossible to detect manually. By using automated testing tools, companies can ensure that their websites and applications are accessible to users with disabilities, providing a more inclusive experience for all users.</p>
+<h3 id="consistency-and-accuracy" tabindex="-1">Consistency and accuracy <a href="#consistency-and-accuracy">#</a> <a class="header-anchor" href="#consistency-and-accuracy">#</a></h3>
+<p>Automated accessibility testing also offers the benefits of consistency and accuracy. When using manual testing methods, accessibility issues can be missed due to human error, bias, or simply because a tester may not know all the accessibility requirements. Automated testing tools, on the other hand, use a standardised set of rules and guidelines to test for accessibility, which helps to ensure that accessibility issues are identified and addressed consistently across all pages and components of a website or application.</p>
+<p>Automated testing tools can also provide more accurate results than manual testing, as they are less prone to human error or oversight. These tools can scan large volumes of code and detect accessibility issues quickly and accurately, reducing the risk of missing important points. In addition, automated testing tools can provide detailed reports that include specific problems, recommendations for remediation, and even code snippets to help developers fix the issues. For example, an automated accessibility testing tool could identify a missing alt tag on an image, which is essential for users with visual impairments who rely on screen readers. In contrast, a manual tester may have overlooked this issue or missed it due to a mistake or oversight.</p>
+<p>Overall, the consistency and accuracy of automated accessibility testing can help businesses to ensure that their websites and applications are fully accessible to users with disabilities. By using automated testing tools, companies can identify and address accessibility issues quickly and accurately, improving the user experience for all users.</p>
+<h3 id="challenges-of-automated-accessibility-testing" tabindex="-1">Challenges of Automated Accessibility Testing <a href="#challenges-of-automated-accessibility-testing">#</a> <a class="header-anchor" href="#challenges-of-automated-accessibility-testing">#</a></h3>
+<p>While there are many benefits to automated accessibility testing, there are also some challenges that businesses may face when implementing these tools. In the next chapter, we will explore some of the key challenges of automated accessibility testing and discuss strategies for addressing these challenges to ensure that businesses can fully realise the benefits of these tools.</p>
+<h3 id="false-positives" tabindex="-1">False positives <a href="#false-positives">#</a> <a class="header-anchor" href="#false-positives">#</a></h3>
+<p>False positives occur when a computerised testing tool incorrectly identifies an element as inaccessible, even though it complies with accessibility guidelines. This can lead to wasted time and resources, as developers may spend time fixing issues that do not exist.</p>
+<p>While most accessibility scanners are considered reliable and effective automated testing tools, they have been known to flag elements as inaccessible even when they comply with accessibility guidelines. For example, many tools may flag a link as having insufficient contrast, even when the link's contrast ratio meets WCAG guidelines.</p>
+<p>To address the issue of false positives, businesses should take steps to verify the results of automated testing tools and should not rely solely on the output of these tools. This may involve manually reviewing elements that have been flagged as inaccessible to determine whether the issues are valid or not. In addition, businesses should work with their development teams to ensure that developers understand how to interpret the output of automated testing tools and can distinguish between valid accessibility issues and false positives.</p>
+<p>Overall, while false positives can be a challenge when using automated accessibility testing tools, businesses can take steps to address this issue and ensure that these tools effectively identify and address accessibility issues. By combining automatic and manual testing methods, companies can ensure that their websites and applications are fully accessible to all users, regardless of their abilities.</p>
+<h3 id="lack-of-human-judgement" tabindex="-1">Lack of human judgement <a href="#lack-of-human-judgement">#</a> <a class="header-anchor" href="#lack-of-human-judgement">#</a></h3>
+<p>While automated testing tools are effective at identifying many types of accessibility issues, they cannot replicate the nuanced judgement and experience of a human tester. For example, an automated testing tool may flag a page as inaccessible because of a missing alt tag on an image but may not be able to determine whether the alt tag accurately describes the image's content in a meaningful way to users with disabilities.</p>
+<p>On the other hand, human testers can apply their judgement and experience to identify issues that may be more difficult to detect using automated testing tools. For example, a human tester may be able to identify problems related to the language used on a website or may be able to identify issues related to the overall flow and usability of a website.</p>
+<p>To address the challenge of the lack of human judgement in automated accessibility testing, businesses should consider combining automated and manual testing methods. While automated testing tools can help to identify many types of accessibility issues quickly and efficiently, manual testing can help to identify more nuanced issues that may be missed by automated means. In addition, businesses should ensure that their development teams are knowledgeable about accessibility best practices and can apply their own judgement and experience to identify and address accessibility issues. By working with both automated and manual testing tools, businesses can ensure that their websites and applications are fully accessible to users with disabilities.</p>
+<h3 id="technical-limitations" tabindex="-1">Technical limitations <a href="#technical-limitations">#</a> <a class="header-anchor" href="#technical-limitations">#</a></h3>
+<p>Another challenge of automated accessibility testing is the technical limitations of these tools. While automated testing tools are effective at identifying many types of accessibility issues, they may not be able to detect all kinds of problems. For example, automated testing tools may not be able to detect issues related to the content's context, such as the readability of text within a particular design or layout.</p>
+<p>In addition, automated testing tools may not be able to detect issues related to the dynamic nature of web content. For example, an automated testing tool may not be able to find changes to a website's content that occur in response to user interactions, such as pop-up windows or drop-down menus.</p>
+<p>To address the challenge of technical limitations in automated accessibility testing, businesses should work with their development teams to ensure that their websites and applications are designed and developed in a way that is accessible by default. This may involve using accessible design patterns, following best practices for semantic markup, and ensuring that all content is presented clearly and understandably.</p>
+<p>In addition, businesses should consider using automated and manual testing methods to ensure their websites and applications are fully accessible. This may involve using automated testing tools to identify and address common accessibility issues quickly and efficiently while also performing manual testing to identify more nuanced issues that may be missed by automated means.</p>
+<p>Overall, while automated accessibility testing tools can be effective at identifying many types of accessibility issues, businesses should be aware of the technical limitations of these tools and should take steps to address these limitations through a combination of automated and manual testing methods.</p>
+<h2 id="best-practices-for-automated-accessibility-testing" tabindex="-1">Best Practices for Automated Accessibility Testing <a href="#best-practices-for-automated-accessibility-testing">#</a> <a class="header-anchor" href="#best-practices-for-automated-accessibility-testing">#</a></h2>
+<p>As we've seen, automated accessibility testing can be a valuable tool for businesses looking to ensure that their websites and applications are accessible to all users. However, to get the most out of these tools, it's essential to follow best practices for automated accessibility testing.</p>
+<p>In the following section, we'll explore some of the best practices businesses should consider when using automated testing tools to ensure their websites and applications are accessible to all users.</p>
+<h3 id="use-a-combination-of-manual-and-automated-testing" tabindex="-1">Use a combination of manual and automated testing <a href="#use-a-combination-of-manual-and-automated-testing">#</a> <a class="header-anchor" href="#use-a-combination-of-manual-and-automated-testing">#</a></h3>
+<p>While automated accessibility testing can be a valuable tool, it's important to note that it's best used with manual testing. Manual testing involves using human judgement and expertise to evaluate a website or application's accessibility and can help to identify issues that may be missed by automated testing tools.</p>
+<p>When using a combination of manual and automated testing, it's crucial to prioritise the most critical areas of your website or application. This may include areas of your website that are frequently used, such as navigation menus or search bars, or particularly complex or dynamic areas.</p>
+<p>Establishing clear testing protocols and procedures is important to ensure testing is conducted consistently and effectively. This may involve defining specific accessibility standards to test against, establishing a set of testing criteria and procedures, and documenting testing results and any identified issues.</p>
+<p>In addition, involving a diverse group of testers in your testing process is essential. This may include users with disabilities or impairments and testers with different levels of experience or expertise. By involving a diverse group of testers, you can help to identify a broader range of accessibility issues and ensure that your website or application is accessible to the widest possible range of users.</p>
+<p>Overall, while automated accessibility testing can be a valuable tool, it's essential to use it with manual testing and establish clear testing protocols and procedures to ensure that testing is conducted consistently and effectively. By following these best practices, businesses can help to ensure that their websites and applications are fully accessible to all users.</p>
+<h3 id="stay-up-to-date-with-accessibility-guidelines" tabindex="-1">Stay up to date with accessibility guidelines <a href="#stay-up-to-date-with-accessibility-guidelines">#</a> <a class="header-anchor" href="#stay-up-to-date-with-accessibility-guidelines">#</a></h3>
+<p>Another important consideration for automated accessibility testing is that accessibility guidelines are always evolving. As a result, companies must stay current on the latest procedures and standards to ensure that their websites and applications remain fully accessible.</p>
+<p>The Web Content Accessibility Guidelines (WCAG) are a case in point. The latest release, WCAG 2.1, includes several new success criteria that are not included in earlier releases. These new success criteria address various accessibility issues, including mobile accessibility, cognitive accessibility, and more.</p>
+<p>To ensure that their websites and applications remain fully accessible, businesses should try to stay up-to-date with the latest accessibility guidelines and standards. This may include regularly reviewing the latest guidelines and testing their Web sites and applications against them to identify areas for improvement.</p>
+<p>In addition, businesses should also consider working with accessibility experts or consultants who can help to ensure that their websites and applications meet the latest accessibility standards and guidelines. These experts can provide valuable insights and recommendations for improving accessibility and help ensure businesses comply with accessibility laws and regulations.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a href="#conclusion">#</a> <a class="header-anchor" href="#conclusion">#</a></h2>
+<p>To conclude, automated accessibility testing is critical for businesses looking to ensure that their websites and applications are fully accessible to all users. By automating the testing process, companies can save time and money and improve coverage, consistency and accuracy.</p>
+<p>However, it is crucial to know the challenges associated with automated accessibility testing, including false positives, poor human judgment, and technical limitations. Companies should consider using a combination of manual and automated testing and keeping abreast of current accessibility guidelines and standards.</p>
+<p>Ultimately, accessibility should be a priority for all businesses, ensuring equal access to digital assets and services. By prioritising accessibility and using automated accessibility testing tools, companies can create a more inclusive and accessible online environment while ensuring compliance with accessibility laws and regulations.</p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/why-web-governance/">What is web governance and why you need it</a></li><li>Next: <a href="/blog/european-acessibility-act/">European Accessibility Act and the private sector</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/automated-accessibility-testing-guide/` was built on 2024-09-20T12:44:22.224Z -->
+	</body>
+</html>

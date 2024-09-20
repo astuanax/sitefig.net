@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
+		<loc>https://ww.sitefig.net/blog/why-you-need-https/</loc>
+		<lastmod>2022-11-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/pii-data-leaks/</loc>
+		<lastmod>2022-11-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/article-release-v1-1-0/</loc>
+		<lastmod>2022-11-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/website-auditing-monitoring/</loc>
+		<lastmod>2022-11-07</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/release-v1-2-0/</loc>
+		<lastmod>2022-11-10</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/why-web-governance/</loc>
+		<lastmod>2022-11-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/automated-accessibility-testing-guide/</loc>
+		<lastmod>2023-03-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/european-acessibility-act/</loc>
+		<lastmod>2023-03-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/release-v2/</loc>
+		<lastmod>2023-12-11</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://ww.sitefig.net/blog/webpage-classification/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
@@ -27,6 +72,26 @@
 	</url>
 	
 	<url>
+		<loc>https://ww.sitefig.net/tags/accessibility/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/tech/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/privacy/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/news/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://ww.sitefig.net/tags/seo/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
@@ -38,6 +103,11 @@
 	
 	<url>
 		<loc>https://ww.sitefig.net/tags/webpage-classification/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/web-governance/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
 </urlset>

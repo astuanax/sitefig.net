@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>PII Data Leaks: A Dangerous Situation</title>
+		<meta name="description" content="Sitefig blog">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">sitefig.net</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About us</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>PII Data Leaks: A Dangerous Situation</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-11-03">03 November 2022</time></li>
+	<li><a href="/tags/privacy/" class="post-tag">privacy</a>, </li>
+	<li><a href="/tags/news/" class="post-tag">news</a></li>
+</ul>
+
+<p>Users/clients and organizations began to focus more on Personal Identifiable Information (PII) and, in general, personal
+data from 2010 onwards. Personal data controversies raised legal rights issues, ethical obligations, commercial disputes
+and information security concerns.</p>
+<p>2021 wasn’t any different, with more data breaches than ever.</p>
+<p>Indeed, more and more PII is being generated, transferred, and accumulated every day; and it becomes a target for
+hackers of all kinds. Yet, end-users often misjudge the threats, and some organizations believe that social engineering
+is merely a Hollywood plot.</p>
+<h3 id="but-what-is-pii" tabindex="-1">But what is PII? <a href="%22#but-what-is-pii%3F%22">#</a> <a class="header-anchor" href="#but-what-is-pii">#</a></h3>
+<p>Personally Identifiable Information (PII) is formally
+defined (<a href="%22https://gdpr.eu/eu-gdpr-personal-data/%22">https://gdpr.eu/eu-gdpr-personal-data/</a>) as “any information
+relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can
+be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification
+number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic,
+mental, economic, cultural or social identity of that natural person.”</p>
+<p>Let’s break that down.</p>
+<p>PII is information that organizations use on their own or combined with other information to identify, contact, or
+locate a single person or identify that individual in context. Personal data comes in many different shapes:</p>
+<ul>
+<li>Names</li>
+<li>Addresses</li>
+<li>Financial information</li>
+<li>Login IDs</li>
+<li>Biometric identifiers</li>
+<li>Video footage</li>
+<li>Geographic location data</li>
+<li>Customer loyalty histories</li>
+<li>Social media</li>
+<li>IP Addresses</li>
+</ul>
+<p>Some of the PII is publicly available and scattered across many websites, but do not underestimate the value of such
+information.
+Hackers are not only interested in the amount of personal data found but are also interested in the correlation of these
+pieces. Public data breaches contain password hashes that can be decrypted using password dictionaries. With a bit of
+time and enough resources, a hacker can retrieve any password you use on your websites CMS.
+Not many CMS systems enforce password requirements or regular password updates, which means your website can become a
+target quickly.
+Most of these attacks are never exposed because you gave the key to the house, and nobody saw any forced entry. As long
+as nothing changes, you might never know. That is why it is essential to be aware of any PII data on your websites and
+how it can be used against you.</p>
+<h4 id="pii-discovery-to-the-rescue" tabindex="-1">PII Discovery to the rescue <a href="%22#pii-discovery-to-the-rescue%22">#</a> <a class="header-anchor" href="#pii-discovery-to-the-rescue">#</a></h4>
+<p>International companies likely have many websites and limited resources. Manually verifying all those pages becomes a
+nightmare quickly, so best is that you use automated tools to scan your websites such as
+ZAP Proxy: the OWASP project has experimental support for PII to scan your website for leaks.CUSPIder: an open-source
+forensic file scanning application that can scan for PII related data.Sitefig: web-governance suite with an extensive
+set of PII scanners to make your website GDPR compliant.Why would you need a PII scanner?Your website is most
+likely updated right now. If you have a CMS, editors publish new content, and IT delivers updated solutions to suit your
+company’s needs. So a regular scan is required to maintain compliance and make sure you avoid embarrassing or costly
+mistakes:
+Save cost: it is better to prevent than to fix. If you can identify all the PII you have on your website on a regular
+basis, you can mitigate risk before they actually become an issue.Customers trust: the worst UX a visitor can have is
+an email from your company about a data breach but if you do have to send it, make sure you do it within the legal
+restraints. Under GDPR regulations, your company must to report data breaches within 72 hours.GDPR regulations: to
+make sure your website adheres to the policy published on your website. Too often policies are published at the start of
+the project, and never updated. Keep your policies updated with facts so you can either edit the policy or update your
+website functionality and data.
+It won’t happen at this company.
+Wishful thinking isn’t going to change the fact that hackers are hard at work. After servers become online, it takes
+minutes before hackers scan the IP address for vulnerabilities.
+Human error is a significant factor too, and it accounts for most of the vulnerabilities companies face. No matter how
+strict your policies are, you cannot rule out human error completely. Scanning regularly makes sure you don’t miss any
+issues.</p>
+<h3 id="make-pii-discovery-part-of-the-regular-scan" tabindex="-1">Make PII discovery part of the regular scan. <a href="%22#make-pii-discovery-part-of-the-regular-scan.%22">#</a> <a class="header-anchor" href="#make-pii-discovery-part-of-the-regular-scan">#</a></h3>
+<p>Whether you use open source tools or a free Sitefig account, any company with several websites should take care to scan
+for potentially damaging or necessary PII data. It is impossible to rule out publishing names and email addresses;
+telephone numbers and even bank account need to be published in some cases.
+Set up a regular scanning solution to keep your reputation intact and stay compliant.</p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/why-you-need-https/">Why you need HTTPS</a></li><li>Next: <a href="/blog/article-release-v1-1-0/">Release v1.1.0</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/pii-data-leaks/` was built on 2024-09-20T12:44:22.224Z -->
+	</body>
+</html>
