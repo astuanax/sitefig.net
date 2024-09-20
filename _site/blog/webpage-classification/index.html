@@ -490,34 +490,30 @@ h2 + .header-anchor {
 <p>big problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.</p>
 <p>In this paper, the authors use a special method called the UMND1 algorithm to solve this. It works by looking at the meanings of the nearby words and finding the one that makes the most sense. It does this by using WordNet’s synsets (groups of words with similar meanings) to calculate how similar the words are in meaning.</p>
 <p>Here's a simple Python example of how WSD might be implemented using the NLTK library's WordNet interface:</p>
-<p>&quot;`python
-from nltk.corpus import wordnet as wn
-from nltk.wsd import lesk</p>
-<h1 id="sample-sentence-and-ambiguous-word" tabindex="-1">Sample sentence and ambiguous word <a class="header-anchor" href="#sample-sentence-and-ambiguous-word">#</a></h1>
-<p>sentence = &quot;The bank will not approve the loan.&quot;
-ambiguous_word = &quot;bank&quot;</p>
-<h1 id="word-sense-disambiguation-using-lesk-algorithm" tabindex="-1">Word sense disambiguation using lesk algorithm <a class="header-anchor" href="#word-sense-disambiguation-using-lesk-algorithm">#</a></h1>
-<p>sense = lesk(sentence.split(), ambiguous_word)
+<pre><code>from nltk.corpus import wordnet as wn
+from nltk.wsd import lesk
+
+# Sample sentence and ambiguous word
+sentence = &quot;The bank will not approve the loan.&quot;
+ambiguous_word = &quot;bank&quot;
+
+# Word sense disambiguation using lesk algorithm
+sense = lesk(sentence.split(), ambiguous_word)
 print(f&quot;Word: {ambiguous_word}&quot;)
 print(f&quot;Disambiguated Sense: {sense}&quot;)
-print(f&quot;Definition: {sense.definition()}&quot;)</p>
-<pre><code>
-This function selects the correct meaning of &quot;bank&quot; based on the sentence. However, the paper uses a more sophisticated approach based on semantic similarity.
-
----
-
-### Semantic Similarity Measures
-
-The authors use two categories of semantic similarity measures: **edge counting measures** and **information content measures**. These measures calculate the closeness of concepts within WordNet's hierarchy. Below are some of the key measures:
-
-1. **Wu and Palmer (wup)**: Measures similarity based on the depth of the concepts in the taxonomy.
-2. **Leacock and Chodorow (lch)**: Computes the shortest path between two concepts and normalizes it by the maximum depth.
-3. **Resnik**: Measures the shared information between two concepts.
-
-Here's an example of calculating the Wu and Palmer similarity between two words in Python:
-
-```python
-from nltk.corpus import wordnet as wn
+print(f&quot;Definition: {sense.definition()}&quot;)
+</code></pre>
+<p>This function selects the correct meaning of &quot;bank&quot; based on the sentence. However, the paper uses a more sophisticated approach based on semantic similarity.</p>
+<hr>
+<h3 id="semantic-similarity-measures" tabindex="-1">Semantic Similarity Measures <a class="header-anchor" href="#semantic-similarity-measures">#</a></h3>
+<p>The authors use two categories of semantic similarity measures: <strong>edge counting measures</strong> and <strong>information content measures</strong>. These measures calculate the closeness of concepts within WordNet's hierarchy. Below are some of the key measures:</p>
+<ol>
+<li><strong>Wu and Palmer (wup)</strong>: Measures similarity based on the depth of the concepts in the taxonomy.</li>
+<li><strong>Leacock and Chodorow (lch)</strong>: Computes the shortest path between two concepts and normalizes it by the maximum depth.</li>
+<li><strong>Resnik</strong>: Measures the shared information between two concepts.</li>
+</ol>
+<p>Here's an example of calculating the Wu and Palmer similarity between two words in Python:</p>
+<pre><code>from nltk.corpus import wordnet as wn
 
 # Words to compare
 word1 = wn.synset('car.n.01')
@@ -538,64 +534,55 @@ print(f&quot;Wu-Palmer Similarity between {word1.name()} and {word2.name()}: {si
 <li><strong>Categorize the page</strong> based on the predefined thematic areas using the processed features.</li>
 </ol>
 <p>The TF-IDF variant used here calculates how representative a term is for a particular category, which is crucial for distinguishing content. A Python implementation for basic TF-IDF might look like this:</p>
-<p>&quot;`python
-from sklearn.feature_extraction.text import TfidfVectorizer</p>
-<h1 id="example-web-page-anchor-texts" tabindex="-1">Example web page anchor texts <a class="header-anchor" href="#example-web-page-anchor-texts">#</a></h1>
-<p>documents = [
+<pre><code>from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Example web page anchor texts
+documents = [
 &quot;The car is fast and reliable.&quot;,
 &quot;Automobile manufacturing is a key industry.&quot;,
 &quot;Banks offer loans for buying cars.&quot;
-]</p>
-<h1 id="initialize-tf-idf-vectorizer" tabindex="-1">Initialize TF-IDF Vectorizer <a class="header-anchor" href="#initialize-tf-idf-vectorizer">#</a></h1>
-<p>vectorizer = TfidfVectorizer()
-tfidf_matrix = vectorizer.fit_transform(documents)</p>
-<h1 id="display-tf-idf-scores" tabindex="-1">Display TF-IDF scores <a class="header-anchor" href="#display-tf-idf-scores">#</a></h1>
-<p>feature_names = vectorizer.get_feature_names_out()
+]
+
+# Initialize TF-IDF Vectorizer
+vectorizer = TfidfVectorizer()
+tfidf_matrix = vectorizer.fit_transform(documents)
+
+# Display TF-IDF scores
+feature_names = vectorizer.get_feature_names_out()
 for doc_id, doc in enumerate(documents):
 print(f&quot;\nDocument {doc_id+1}:&quot;)
 for word_id in tfidf_matrix[doc_id].nonzero()[1]:
-print(f&quot;{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}&quot;)</p>
-<pre><code>
-This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like &quot;car&quot; and &quot;automobile&quot; in automotive-related documents.
-
----
-
-### Experimental Results
-
-The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using **co-occurring WordNet synsets**, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.
-
-Key findings include:
-- **Co-occurring synsets** yielded the best classification results.
-- Using **disambiguated terms** improved the precision of thematic classification.
-- The performance was enhanced by combining different similarity measures and using WordNet's semantic hierarchy.
-
----
-
-### Conclusion
-
-This research demonstrates the power of integrating semantic networks like WordNet with traditional machine-learning techniques for web page classification. By disambiguating word senses and calculating semantic similarity, the classifier provides more accurate results than conventional keyword-based methods.
-
-Improvements could include:
+print(f&quot;{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}&quot;)
+</code></pre>
+<p>This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like &quot;car&quot; and &quot;automobile&quot; in automotive-related documents.</p>
+<hr>
+<h3 id="experimental-results" tabindex="-1">Experimental Results <a class="header-anchor" href="#experimental-results">#</a></h3>
+<p>The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using <strong>co-occurring WordNet synsets</strong>, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.</p>
+<p>Key findings include:</p>
+<ul>
+<li><strong>Co-occurring synsets</strong> yielded the best classification results.</li>
+<li>Using <strong>disambiguated terms</strong> improved the precision of thematic classification.</li>
+<li>The performance was enhanced by combining different similarity measures and using WordNet's semantic hierarchy.</li>
+</ul>
+<hr>
+<h3 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h3>
+<p>This research demonstrates the power of integrating semantic networks like WordNet with traditional machine-learning techniques for web page classification. By disambiguating word senses and calculating semantic similarity, the classifier provides more accurate results than conventional keyword-based methods.</p>
+<p>Improvements could include:
 Expanding the training data for languages like Greek.
 Refining the disambiguation process.
 Incorporating modern deep learning techniques for better performance.
-Nevertheless, leveraging linguistic data for more intelligent web page categorization remains highly relevant in today's AI-driven world.
-
----
-
-**References**
-
-[1] Kozanidis, E., Simaki, V., Koumpouri, A. *Web Page Classification Using WordNet's Linguistic Information*.
-[2] Fellbaum, Ch. (1998). *WordNet: An Electronic Lexical Database*. MIT Press.
-[3] Qi, X., &amp; Davison, B. (2009). *Web Page Classification: Features and Algorithms*. ACM Computing Surveys.
-
-</code></pre>
+Nevertheless, leveraging linguistic data for more intelligent web page categorization remains highly relevant in today's AI-driven world.</p>
+<hr>
+<p><strong>References</strong></p>
+<p>[1] Kozanidis, E., Simaki, V., Koumpouri, A. <em>Web Page Classification Using WordNet's Linguistic Information</em>.
+[2] Fellbaum, Ch. (1998). <em>WordNet: An Electronic Lexical Database</em>. MIT Press.
+[3] Qi, X., &amp; Davison, B. (2009). <em>Web Page Classification: Features and Algorithms</em>. ACM Computing Surveys.</p>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/blog/webpage-classification/` was built on 2024-09-20T09:01:40.257Z -->
+		<!-- This page `/blog/webpage-classification/` was built on 2024-09-20T09:20:07.533Z -->
 	</body>
 </html>
