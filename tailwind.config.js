@@ -1,11 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./_includes/**/*.njk", "./content**/*.{njk, md}/", "./_site/**/*.html"],
+	content: ["./_includes/**/*.njk", "./content/**/*.{njk, md}/"],
 	theme: {
 		extend: {
-			screens: {
-				tablet: '640px',
-			},
 			colors: {
 				transparent: 'transparent',
 				current: 'currentColor',
@@ -133,6 +130,8 @@ module.exports = {
 
 		}
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }
 

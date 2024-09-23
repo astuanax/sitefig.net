@@ -24,6 +24,9 @@ module.exports = function(eleventyConfig) {
 
 	// Watch content images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addWatchTarget("./public/css/*");
+	eleventyConfig.addWatchTarget("./public/img/*");
+	eleventyConfig.addWatchTarget("./css/*.css");
 
 	// App plugins
 	eleventyConfig.addPlugin(pluginDrafts);

@@ -7,15 +7,24 @@ tags:
   - machine-learning
   - webpage-classification
 ---
-## Leveraging WordNet for Web Page Classification Using Semantic Networks
 
 This blog post is one of many about web page classification and information retrieval algorithms. Most papers are still relevant today, even if it was just to better understand how search engines and AI work today.
 
 **Introduction**
 
-Today, we will be analysing the paper "Web Page Classification Using WordNet's Linguistic Information"  by Eleftherios Kozanidis, Vasiliki Simaki, and Athanasia Koumpouri, who presented an approach on how to use semantic networks and word sense disambiguation technique.
+In this post, we will be analysing the paper ["Web Page Classification Using WordNet's Linguistic Information"](https://www.academia.edu/5085262/Web_Page_Classification_Using_WordNets_Linguistic_Information)  by Eleftherios Kozanidis, Vasiliki Simaki, and Athanasia Koumpouri, who presented an approach on how to use semantic networks and word sense disambiguation technique.
 
-Word disambiguation is still important today in information retrieval because many words have multiple meanings. For example, the word "bank" can refer to the side of a river or a financial institution. Without disambiguation, a search engine might give you results about riverbanks when you're looking for a bank to open an account.
+Even though today's search engines apply disambiguation to complete sentences and phrases instead of single words, the technique is still useful to learn to better understand how algorithms like BERT are used. So let's get started.
+
+![A network of nodes around the concept of news, a mesh of words that are all linked together to the concept of what news means. AI generated, difficult to read text](/img/semantic-network.webp)
+
+**Abstract**
+
+A problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the surrounding words.
+
+Semantic similarity and determining the actual meaning of a word in context has always been problematic in computational linguistic and machine learning.
+
+Word disambiguation in information retrieval can be tricky, because many words have multiple meanings. For example, the word "bank" can refer to the side of a river or a financial institution. Without disambiguation, a search engine might give you results about riverbanks when you're looking for a bank to open an account.
 
 Word disambiguation helps search engines understand which meaning of the word you're interested in, based on the context of your search, which is where semantic networks become important.
 
@@ -23,7 +32,7 @@ In a semantic network, words (or concepts) are connected to each other based on 
 
 Web page classification is crucial in improving information retrieval and organizing content. Automated classification methods are essential as the World Wide Web grows exponentially and content becomes a real asset again. The research paper "Web Page Classification Using WordNet's Linguistic Information" explores the use of semantic networks, particularly WordNet and GreekWordNet, to enhance web page classification. The paper demonstrates how linguistic data, combined with word sense disambiguation (WSD) and semantic similarity measures, can effectively categorize web pages into predefined thematic areas.
 
-In this post, we will explain the research, explain the methodology, and show how these techniques can be applied in modern applications, with some relevant code examples.
+Even though today's search engines apply disambiguation to complete sentences and phrases instead of single words, the technique is still useful to learn to better understand how algorithms like BERT are used
 
 ---
 
@@ -31,9 +40,9 @@ In this post, we will explain the research, explain the methodology, and show ho
 
 Semantic networks like WordNet represent concepts (nodes) and the relationships between them (edges). WordNet groups words into sets of cognitive synonyms called *synsets*, which express distinct concepts.
 
-WordNet is a specific type of semantic network that groups words with similar meanings into sets called synsets. Each synset represents a specific meaning or idea. For example, in WordNet, the word "bank" might be part of one synset that refers to a place for money and another synset that refers to the side of a river. This helps computers understand which meaning of a word you’re using.
+WordNet is a specific type of semantic network that groups words with similar meanings into sets called synsets. Each synset represents a specific meaning or idea. For example, in WordNet, the word "bank" might be part of one synset that refers to a place for money and another synset that refers to the side of a river. This technique allows applications to "understand" and select which meaning of a word you’re referring to.
 
-big problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.
+A problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.
 
 In this paper, the authors use a special method called the UMND1 algorithm to solve this. It works by looking at the meanings of the nearby words and finding the one that makes the most sense. It does this by using WordNet’s synsets (groups of words with similar meanings) to calculate how similar the words are in meaning.
 
@@ -112,9 +121,10 @@ tfidf_matrix = vectorizer.fit_transform(documents)
 # Display TF-IDF scores
 feature_names = vectorizer.get_feature_names_out()
 for doc_id, doc in enumerate(documents):
-print(f"\nDocument {doc_id+1}:")
+	print(f"\nDocument {doc_id+1}:")
+
 for word_id in tfidf_matrix[doc_id].nonzero()[1]:
-print(f"{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}")
+	print(f"{feature_names[word_id]}: {tfidf_matrix[doc_id, word_id]:.4f}")
 ```
 
 This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like "car" and "automobile" in automotive-related documents.
@@ -134,13 +144,12 @@ Key findings include:
 
 ### Conclusion
 
-This research demonstrates the power of integrating semantic networks like WordNet with traditional machine-learning techniques for web page classification. By disambiguating word senses and calculating semantic similarity, the classifier provides more accurate results than conventional keyword-based methods.
+Even though most of these technique as described are no longer used, understanding how this applies to search engine and SEO is still valuable. It explains why, for example, anchor text is such an important aspect of building internal linking.
 
-Improvements could include:
-Expanding the training data for languages like Greek.
-Refining the disambiguation process.
-Incorporating modern deep learning techniques for better performance.
-Nevertheless, leveraging linguistic data for more intelligent web page categorization remains highly relevant in today's AI-driven world.
+Using generic text, such as "read more" for links would effectively disallow any application to disambiguate the words of the linked page.
+
+
+
 
 ---
 
