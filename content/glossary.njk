@@ -1,0 +1,11 @@
+---
+layout: layouts/home.njk
+title: "Glossary Overview"
+---
+
+<h1>Glossary Overview</h1>
+<ul>
+	{% for term in collections.glossary %}
+	<li><a href="{{ term.url }}">{{ term.data.title }}</a></li>
+	{% endfor %}
+</ul>

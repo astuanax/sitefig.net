@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+<article>{# Only include the syntax highlighter CSS on blog posts #}
+	{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+	{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+	<h1>Term: {{ title }}</h1>
+	<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+
+	<ul class="post-metadata flex p-0 m-0">
+		{%- for tag in tags | filterTagList %}
+		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+		<li class="list-none ps-0 pr-2"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+		{%- endfor %}
+	</ul>
+
+	{{ content | safe }}
+
+	{%- if collections.posts %}
+	{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+	{%- set nextPost = collections.posts | getNextCollectionItem %}
+	{%- if nextPost or previousPost %}
+	<ul class="links-nextprev">
+		{%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+		{%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+	</ul>
+	{%- endif %}
+	{%- endif %}
+</article>

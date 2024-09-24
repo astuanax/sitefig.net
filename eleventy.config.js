@@ -52,6 +52,10 @@ module.exports = function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
 	});
 
+	eleventyConfig.addCollection("glossary", function (collectionApi) {
+		return collectionApi.getFilteredByGlob("content/glossary/*.md"); // Adjust path if needed
+	});
+
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
 		if(!Array.isArray(array) || array.length === 0) {
