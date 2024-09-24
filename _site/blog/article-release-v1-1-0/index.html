@@ -1276,8 +1276,16 @@ video {
   margin-right: auto;
 }
 
+.mb-10 {
+  margin-bottom: 4.6875rem;
+}
+
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .contents {
@@ -1314,6 +1322,10 @@ video {
 
 .list-none {
   list-style-type: none;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-wrap {
@@ -1355,6 +1367,11 @@ video {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
+}
+
+.bg-body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .p-0 {
@@ -1407,8 +1424,41 @@ video {
   padding-top: 7px;
 }
 
+.font-sans {
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.font-serif {
+  font-family: Merriweather, serif;
+}
+
+.text-lg {
+  font-size: 1.465rem;
+  line-height: 1.875rem;
+}
+
+.text-sm {
+  font-size: 0.75rem;
+  line-height: 1.875rem;
+}
+
+.text-md {
+  font-size: 1.172rem;
+  line-height: 1.875rem;
+}
+
 .leading-\[40px\] {
   line-height: 40px;
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(108 117 125 / var(--tw-text-opacity));
+}
+
+.text-txt {
+  --tw-text-opacity: 1;
+  color: rgb(75 65 69 / var(--tw-text-opacity));
 }
 
 .filter {
@@ -1632,8 +1682,9 @@ a {
   }
 }</style>
 </head>
-<body>
-<header class="sticky left-0 w-full top-0 z-10 bg-body/80 backdrop-blur pb-2 pt-1">
+<body class="bg-body text-txt"
+			style="background-image: url('/img/bg.svg'); background-attachment:fixed; background-repeat: no-repeat;">
+<header class="sticky left-0 w-full top-0 z-10 bg-body/80 backdrop-blur pb-2 pt-1 mb-10">
 
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
@@ -1675,9 +1726,9 @@ a {
 
 	<nav class="">
 		<ul class="flex flex-wrap leading-[40px]">
-			<li class="pr-4"><a href="">Home</a></li>
-			<li class="pr-4"><a href="">Archive</a></li>
-			<li class="pr-4"><a href="">Contact</a></li>
+			<li class="pr-4"><a href="/">Home</a></li>
+			<li class="pr-4"><a href="/blog/">Archive</a></li>
+			<li class="pr-4"><a href="https://sitefig.eu/">About</a></li>
 		</ul>
 	</nav>
 	</div>
@@ -1752,6 +1803,6 @@ a {
 
 <footer></footer>
 
-<!-- This page `/blog/article-release-v1-1-0/` was built on 2024-09-23T10:12:13.109Z -->
+<!-- This page `/blog/article-release-v1-1-0/` was built on 2024-09-24T07:11:35.477Z -->
 </body>
 </html>

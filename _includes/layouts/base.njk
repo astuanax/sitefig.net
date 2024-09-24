@@ -36,8 +36,9 @@
 	{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
 	{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
 </head>
-<body>
-<header class="sticky left-0 w-full top-0 z-10 bg-body/80 backdrop-blur pb-2 pt-1">
+<body class="bg-body text-txt"
+			style="background-image: url('/img/bg.svg'); background-attachment:fixed; background-repeat: no-repeat;">
+<header class="sticky left-0 w-full top-0 z-10 bg-body/80 backdrop-blur pb-2 pt-1 mb-10">
 
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
@@ -79,9 +80,9 @@
 
 	<nav class="">
 		<ul class="flex flex-wrap leading-[40px]">
-			<li class="pr-4"><a href="">Home</a></li>
-			<li class="pr-4"><a href="">Archive</a></li>
-			<li class="pr-4"><a href="">Contact</a></li>
+			<li class="pr-4"><a href="/">Home</a></li>
+			<li class="pr-4"><a href="/blog/">Archive</a></li>
+			<li class="pr-4"><a href="https://sitefig.eu/">About</a></li>
 		</ul>
 	</nav>
 	</div>
