@@ -3,6 +3,7 @@ title: 'European Accessibility Act and the private sector'
 date: '2023-03-03T08:36:35.869Z'
 tags: ['accessibility', 'tech']
 draft: false
+category: "accessibility"
 summary:  "Accessibility is an important issue for people with disabilities, as it ensures that everyone has equal access to online information and services. The European Accessibility Act, which the European Union adopted in 2019, aims to make products and services more accessible for people with disabilities, Because the EAA applies to the private sector, accessibility is a direct and urgent issue for commercial enterprises."
 ---
 Accessibility is an important issue for people with disabilities, as it ensures that everyone has equal access to online information and services.
@@ -19,7 +20,7 @@ People with disabilities often face barriers to accessing essential services via
 
 In addition, the EAA will also have an impact on businesses and organizations by promoting accessibility as a fundamental design principle. Inclusive design principles automatically result in more inclusive products and accessible services. The curb effects will benefit people with disabilities and older people with temporary disabilities and varying abilities.
 
-What are the general EU web accessibility laws? [#](#what-are-the-general-eu-web-accessibility-laws%3F)
+What are the general EU web accessibility laws?
 -------------------------------------------------------------------------------------------------------
 
 The EU has several laws and regulations in place to ensure web accessibility for individuals with disabilities. The most notable is the **[Web Accessibility Directive (WAD)](https://eur-lex.europa.eu/eli/dir/2016/2102/oj)**, which was adopted in 2016 and requires all public sector websites and mobile apps in the EU to be fully accessible by 23 September 2020. This directive is binding, and all EU member states must transpose it into their national laws.
@@ -46,14 +47,14 @@ The Act ensures that everyone has access to a range of everyday products and ser
 
 The Act includes private companies and anyone providing the above services.
 
-Which companies have to comply? [#](#which-companies-have-to-comply%3F)
+Which companies have to comply?
 -----------------------------------------------------------------------
 
 EAA applies to all companies providing products or services to the EU, regardless of location.
 
 Unlike the other laws, the EAA applies to private companies selling products and services used by disabled people, with widely varying accessibility requirements across EU member states.
 
-### Are there any exemptions? [#](#are-there-any-exemptions%3F)
+### Are there any exemptions?
 
 Small companies that employ at most ten persons or have an annual turnover below EUR 2 million are exempt. An additional exception defines that if you can demonstrate "undue burden", you do not need to comply.
 
@@ -68,25 +69,25 @@ The Act defines the following content exemptions:
 *   content of websites and mobile applications qualifying as archives, meaning they only contain
 *   content that needs to be updated or edited after 28 June 2025.
 
-How will the EAA be enforced? [#](#how-will-the-eaa-be-enforced%3F)
+How will the EAA be enforced?
 -------------------------------------------------------------------
 
 The Act is enforced by each EU member state, which means they decide the penalties and appoint the enforcement body.
 
-### Consumers reporting non-compliance [#](#consumers-reporting-non-compliance)
+### Consumers reporting non-compliance
 
 Consumers in each member state must be able to report non-compliance to courts or the authority responsible for enforcing the law. In addition, both private and public organizations must be able to go to court or file a complaint.
 
-### Penalties [#](#penalties)
+### Penalties
 
 Member states enforce their own penalties for non-compliance, which should be "effective, proportionate, and dissuasive."
 
-What is the EAA timeline? [#](#what-is-the-eaa-timeline%3F)
+What is the EAA timeline?
 -----------------------------------------------------------
 
 Ultimately your website needs to be compliant by July 2025.
 
-Which standard has to be used to make your website compliant with the EAA? [#](#which-standard-has-to-be-used-to-make-your-website-compliant-with-the-eaa%3F)
+Which standard has to be used to make your website compliant with the EAA?
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 European Standard EN 301 549 is the document that defines the required accessibility standards. This standard adopts W3C's Web Content Accessibility Guidelines (WCAG.), which support many laws and standards around the world.
@@ -99,7 +100,7 @@ There are, however, some differences between EN 301 549 and WCAG. Notably the re
 
 Additionally, there are some additional requirements for France (RGAA) and Germany 5BITV)
 
-How do you make sure your website is compliant and accessible? [#](#how-do-you-make-sure-your-website-is-compliant-and-accessible%3F)
+How do you make sure your website is compliant and accessible?
 -------------------------------------------------------------------------------------------------------------------------------------
 
 Making your website compliant is always the first step before you can benefit from making your website fully inclusive for all people.
@@ -109,7 +110,7 @@ Making your website compliant is always the first step before you can benefit fr
 3.  Hire a consultant/trainer to help your web team (marketing, content, and IT) take the last step to full compliance
 4.  Audit and monitor ongoing changes to make sure your web team continues to produce accessible websites.
 
-How Sitefig can help [#](#how-sitefig-can-help)
+How Sitefig can help
 -----------------------------------------------
 
 Sitefig provides weekly accessibility reports and enables your web team to understand the issues and build a project plan to go from inaccessible to fully compliant websites.

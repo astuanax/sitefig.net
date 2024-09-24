@@ -15,7 +15,7 @@ Indeed, more and more PII is being generated, transferred, and accumulated every
 hackers of all kinds. Yet, end-users often misjudge the threats, and some organizations believe that social engineering
 is merely a Hollywood plot.
 
-### But what is PII? [#](\"#but-what-is-pii%3F\")
+### But what is PII?
 
 Personally Identifiable Information (PII) is formally
 defined ([https://gdpr.eu/eu-gdpr-personal-data/](\"https://gdpr.eu/eu-gdpr-personal-data/\")) as “any information
@@ -50,7 +50,7 @@ target quickly.
 Most of these attacks are never exposed because you gave the key to the house, and nobody saw any forced entry. As long
 as nothing changes, you might never know. That is why it is essential to be aware of any PII data on your websites and
 how it can be used against you.
-#### PII Discovery to the rescue [#](\"#pii-discovery-to-the-rescue\")
+#### PII Discovery to the rescue
 International companies likely have many websites and limited resources. Manually verifying all those pages becomes a
 nightmare quickly, so best is that you use automated tools to scan your websites such as
 ZAP Proxy: the OWASP project has experimental support for PII to scan your website for leaks.CUSPIder: an open-source
@@ -73,7 +73,7 @@ Human error is a significant factor too, and it accounts for most of the vulnera
 strict your policies are, you cannot rule out human error completely. Scanning regularly makes sure you don’t miss any
 issues.
 
-### Make PII discovery part of the regular scan. [#](\"#make-pii-discovery-part-of-the-regular-scan.\")
+### Make PII discovery part of the regular scan.
 Whether you use open source tools or a free Sitefig account, any company with several websites should take care to scan
 for potentially damaging or necessary PII data. It is impossible to rule out publishing names and email addresses;
 telephone numbers and even bank account need to be published in some cases.

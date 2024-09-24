@@ -2,28 +2,55 @@
 layout: layouts/base.njk
 ---
 <article>{# Only include the syntax highlighter CSS on blog posts #}
-{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
-{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
-<h1>{{ title }}</h1>
-<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+	{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+	{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+	<h1>{{ title }}</h1>
+	<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 
-<ul class="post-metadata flex p-0 m-0">
-	{%- for tag in tags | filterTagList %}
-	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li class="list-none ps-0 pr-2"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-	{%- endfor %}
-</ul>
+	<ul class="post-metadata flex p-0 m-0">
+		{%- for tag in tags | filterTagList %}
+		{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+		<li class="list-none ps-0 pr-2"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {%
+			endif %}
+		</li>
+		{%- endfor %}
+	</ul>
 
-{{ content | safe }}
+	{{ content | safe }}
 
-{%- if collections.posts %}
-{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-{%- set nextPost = collections.posts | getNextCollectionItem %}
-{%- if nextPost or previousPost %}
-<ul class="links-nextprev">
-	{%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-	{%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-</ul>
-{%- endif %}
-{%- endif %}
+	{%- if collections.posts %}
+	{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+	{%- set nextPost = collections.posts | getNextCollectionItem %}
+	{%- if nextPost or previousPost %}
+	<div class="grid grid-cols-2 gap-4 text-gray-600">
+		{%- if previousPost %}
+		<div><strong>Previous:</strong>
+			<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></div>
+		{% endif %}
+		{%- if nextPost %}
+		<div class="text-right"><strong>Next:</strong>
+			<br> <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></div>
+		{% endif %}
+		{%- endif %}
+		{%- endif %}
+	</div>
+
+		{% set currentCategory = category | default('')%}
+		{% set categoryPosts = collections.postsByCategory[currentCategory] | reverse %}
+		{% set relatedPosts = categoryPosts | filterNotCurrentPost(title) %}
+
+		{% if relatedPosts.length > 0 %}
+		<div class="bg-gray-800 text-white rounded-sm px-6 py-4 my-10">
+		<h2 class="text-white mt-0">Related Posts</h2>
+		<ul>
+			{% for post in relatedPosts %}
+			<li>
+				<a class="text-white" href="{{ post.url }}">{{ post.data.title }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+		</div>
+		{% endif %}
+
+
 </article>

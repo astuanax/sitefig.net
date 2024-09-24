@@ -52,8 +52,27 @@ module.exports = function(eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
 	});
 
+	eleventyConfig.addCollection("postsByCategory", function(collectionApi) {
+		const posts = collectionApi.getFilteredByTag("posts");
+		const categories = {};
+
+		posts.forEach(post => {
+			const category = post.data.category;
+			if (!categories[category]) {
+				categories[category] = [];
+			}
+			categories[category].push(post);
+		});
+
+		return categories;
+	});
+
 	eleventyConfig.addCollection("glossary", function (collectionApi) {
 		return collectionApi.getFilteredByGlob("content/glossary/*.md"); // Adjust path if needed
+	});
+
+	eleventyConfig.addFilter("filterNotCurrentPost", function(posts, currentTitle) {
+		return posts.filter(post => post.data.title !== currentTitle);
 	});
 
 	// Get the first `n` elements of a collection.

@@ -5,8 +5,8 @@
 		<h2 class="text-lg"><a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{%
 			else %}<code>{{ post.url }}</code>{% endif %}</a>
 
-			<br/><span class="text-md text-gray-600"><time class=" font-serif postlist-date"
-						datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
+			<br/><span class="font-serif text-md text-gray-600">Published:  <time class=" font-serif postlist-date"
+						datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("d LLLL yyyy") }}</time>
 
 {% if post.data.tags %}
 in {% for tag in post.data.tags | filterTagList %}

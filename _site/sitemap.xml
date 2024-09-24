@@ -72,22 +72,22 @@
 	</url>
 	
 	<url>
-		<loc>https://ww.sitefig.net/tags/privacy/</loc>
-		<lastmod>2024-09-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://ww.sitefig.net/tags/news/</loc>
-		<lastmod>2024-09-20</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://ww.sitefig.net/tags/accessibility/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://ww.sitefig.net/tags/tech/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/privacy/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/news/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
 	
@@ -112,6 +112,11 @@
 	</url>
 	
 	<url>
+		<loc>https://ww.sitefig.net/tags/postsbycategory/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://ww.sitefig.net/tags/glossary/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
@@ -123,6 +128,11 @@
 	
 	<url>
 		<loc>https://ww.sitefig.net/glossary/semantic-network</loc>
+		<lastmod>2024-09-24</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/blog/eaa-getting-ready/</loc>
 		<lastmod>2024-09-24</lastmod>
 	</url>
 </urlset>

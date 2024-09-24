@@ -3,6 +3,7 @@ title: 'Release v2: Accessibility and Privacy upgrades'
 date: '2023-12-11T10:53:35.429Z'
 tags: ['privacy', 'accessibility', 'news']
 draft: false
+category: "news"
 summary:  "The new release is focused around language support for WCAG2.1, PII Scanners and physical addresses"
 ---
 I have been quiet for some time, but not anymore. Sitefig deployed a significant release last week. So, amidst the hush, I've been working hard to bring you an update that aligns with the feature requests gained from our customers.

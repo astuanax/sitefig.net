@@ -5,7 +5,7 @@ tags: ['web-governance', 'news']
 draft: false
 summary: "Lighthouse is an open-source application developed by Google that can evaluate the performance, technical SEO and accessibility of a webpage, Lighthouse is part of every Chrome browser, and you can run these audits yourself if you want to and have the time and resources to do so.\nBut what if you have 1000+ pages? "
 ---
-### Open-source made by Google [#](#open-source-made-by-google)
+### Open-source made by Google
 
 Lighthouse is an open-source application developed by Google that can evaluate the performance, technical SEO and accessibility of a webpage.
 
@@ -28,7 +28,7 @@ Most development teams will need more time to run these tests. And I am sure man
 
 Sitefig uses Lighthouse to audit and monitors all pages on your website using both standard and custom audits.
 
-### Custom audit accessibility [#](#custom-audit-accessibility)
+### Custom audit accessibility
 
 Accessibility is one of those custom audits because the standard Lighthouse runs only a limited set of audits.
 
@@ -36,13 +36,13 @@ Our Accessibility audit covers the latest in open-source technology, which we co
 
 Sitefig also stores screenshots of how the website looks for people with limited vision and color-blindness. ![alt](/static/images/sitefig_net_screenshot_663f9fbf75.png)
 
-### Custom audit for broken links [#](#custom-audit-for-broken-links)
+### Custom audit for broken links
 
 To ensure Sitefig finds all potential links, we drill deep into the code and HTTP headers to find all likely URLs available on your website.
 
 Once we have a list of URLs available on your website, all these are verified and retrieved. The broken link check includes audits for broken SSL/TLS certificates, missing DNS, and invalid URL syntax.
 
-### Standard Performance audit [#](#standard-performance-audit)
+### Standard Performance audit
 
 The Core web metrics recorded by Lighthouse are lab results based on an actual browser with 1 CPU and 1.5 Gb available memory. The metrics are based on the same hardware and network throughput baseline. That way, Sitefig can reliably compare results between pages and between websites using, avoiding fluctuating real-world conditions.
 
@@ -50,7 +50,7 @@ The Core web metrics recorded by Lighthouse are lab results based on an actual b
 
 Besides the lab results, Sitefig also pulls all the real-world data from Google and analyses it to see which pages perform and which do not.
 
-### Lighthouse is a core part of Sitefig. [#](#lighthouse-is-a-core-part-of-sitefig.)
+### Lighthouse is a core part of Sitefig.
 
 The Lighthouse application is a core part of our crawler and auditing infrastructure.
 
