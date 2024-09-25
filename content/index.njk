@@ -8,7 +8,7 @@ numberOfLatestPostsToShow: 3
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
 
-<h1>Sitefig website management and governance insights</h1>
+<h1>Website management and governance insights</h1>
 
 <p>Discover insights, best practices, and expert advice to elevate your website's performance and compliance. As pioneers in website auditing, we're here to help you navigate the complex world of digital governance and optimization.</p>
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
