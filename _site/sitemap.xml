@@ -72,6 +72,16 @@
 	</url>
 	
 	<url>
+		<loc>https://ww.sitefig.net/tags/privacy/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/tags/news/</loc>
+		<lastmod>2024-09-20</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://ww.sitefig.net/tags/accessibility/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
@@ -82,12 +92,7 @@
 	</url>
 	
 	<url>
-		<loc>https://ww.sitefig.net/tags/privacy/</loc>
-		<lastmod>2024-09-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://ww.sitefig.net/tags/news/</loc>
+		<loc>https://ww.sitefig.net/tags/web-governance/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
 	
@@ -103,11 +108,6 @@
 	
 	<url>
 		<loc>https://ww.sitefig.net/tags/webpage-classification/</loc>
-		<lastmod>2024-09-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://ww.sitefig.net/tags/web-governance/</loc>
 		<lastmod>2024-09-20</lastmod>
 	</url>
 	
@@ -128,6 +128,11 @@
 	
 	<url>
 		<loc>https://ww.sitefig.net/glossary/semantic-network</loc>
+		<lastmod>2024-09-24</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ww.sitefig.net/glossary/wu-palmer</loc>
 		<lastmod>2024-09-24</lastmod>
 	</url>
 	

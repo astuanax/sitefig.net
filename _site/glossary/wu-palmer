@@ -3,29 +3,178 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tagged “tech”</title>
+	<title>Semantic network</title>
 	<meta name="description" content="Sitefig blog">
 	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
 	<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
 	
-	<style>.postlist { counter-reset: start-from 5 }
-/* Message Box */
-.message-box {
-	--color-message-box: #ffc;
+	<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
 
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
 	display: block;
-	background-color: var(--color-message-box);
-	color: var(--color-gray-90);
-	padding: 1em 0.625em; /* 16px 10px /16 */
-}
-.message-box ol {
-	margin-top: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: #082840;
-	}
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
 }
 * { box-sizing: border-box; }
 *, ::before, ::after {
@@ -2011,88 +2160,36 @@ a {
 
 <main id="skip"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
-	<!-- Delete this message, it will also remove the component CSS from the bundle -->
-<!-- Stop deleting -->
+	<article>
+	<h1>Term: Semantic network</h1>
+	<time datetime="2024-09-24">24 September 2024</time>
 
-<h1>Tagged “tech”</h1>
+	<ul class="post-metadata flex p-0 m-0">
+		<li class="list-none ps-0 pr-2"><a href="/tags/seo/" class="post-tag">seo</a>, </li>
+		<li class="list-none ps-0 pr-2"><a href="/tags/machine-learning/" class="post-tag">machine-learning</a></li>
+	</ul>
 
+	<h3 id="wu-and-palmer-similarity-measure" tabindex="-1">Wu and Palmer Similarity Measure: <a class="header-anchor" href="#wu-and-palmer-similarity-measure">#</a></h3>
+<p>A semantic similarity measure used to calculate the relatedness of concepts in a hierarchical structure, such as an ontology. The measure is defined as:</p>
+<p>$$SimWP(X, Y) = \frac{2 \times N}{N1 + N2}$$</p>
+<p>Where:</p>
+<ul>
+<li>X and Y are the concepts being compared</li>
+<li>N is the depth of the Least Common Subsumer (LCS) from the root</li>
+<li>N1 is the number of edges from X to the LCS</li>
+<li>N2 is the number of edges from Y to the LCS</li>
+</ul>
+<p>The Wu and Palmer measure is characterized by its simplicity and high performance[1][3]. It takes into account the depth of the concepts in the taxonomy, considering that concepts at lower levels are more specific and thus more similar[1]. This measure is widely used in natural language processing and information retrieval tasks due to its effectiveness in capturing semantic relationships between concepts.</p>
+<p>Citations:
+[1] https://www.thinkmind.org/articles/ubicomm_2016_3_10_10130.pdf
+[2] https://arxiv.org/pdf/1211.4709.pdf
+[3] https://www.researchgate.net/publication/310572659_A_modification_of_Wu_and_Palmer_Semantic_Similarity_Measure
+[4] https://www.researchgate.net/figure/The-process-of-our-methodology-to-compute-the-semantic-similarity-measure_fig1_333256403
+[5] https://www.cartagena99.com/recursos/alumnos/ejercicios/Article%201.pdf
+[6] https://research.vu.nl/files/130180242/Wang2020_Chapter_EvaluatingSimilarityMeasuresForDatasetSearch.pdf
+[7] https://www.sciencedirect.com/science/article/pii/S1877050919306349/pdf?md5=b0c854765e3ad294febcd3f82fcfd41a&amp;pid=1-s2.0-S1877050919306349-main.pdf</p>
 
-
-<div class="">
-	
-	<div>
-		<h2 class="text-lg"><a href="/blog/eaa-getting-ready/" class="postlist-link">Why Your Business Must Comply with the European Accessibility Act by 2025: A Complete Guide to Staying Ahead with Sitefig</a>
-
-			<br/><span class="font-serif text-md text-gray-600">Published:  <time class=" font-serif postlist-date"
-						datetime="2024-09-24">24 September 2024</time>
-
-
-in 
- <a class="text-gray-600" href="/tags/accessibility">accessibility</a>
-
- <a class="text-gray-600" href="/tags/tech">tech</a>
-
-
-			</span>
-		</h2>
-	</div>
-	
-	<div>
-		<h2 class="text-lg"><a href="/blog/european-acessibility-act/" class="postlist-link">European Accessibility Act and the private sector</a>
-
-			<br/><span class="font-serif text-md text-gray-600">Published:  <time class=" font-serif postlist-date"
-						datetime="2023-03-03">3 March 2023</time>
-
-
-in 
- <a class="text-gray-600" href="/tags/accessibility">accessibility</a>
-
- <a class="text-gray-600" href="/tags/tech">tech</a>
-
-
-			</span>
-		</h2>
-	</div>
-	
-	<div>
-		<h2 class="text-lg"><a href="/blog/automated-accessibility-testing-guide/" class="postlist-link">Challenges of Automated Accessibility Testing for Business Owners</a>
-
-			<br/><span class="font-serif text-md text-gray-600">Published:  <time class=" font-serif postlist-date"
-						datetime="2023-03-03">3 March 2023</time>
-
-
-in 
- <a class="text-gray-600" href="/tags/accessibility">accessibility</a>
-
- <a class="text-gray-600" href="/tags/tech">tech</a>
-
-
-			</span>
-		</h2>
-	</div>
-	
-	<div>
-		<h2 class="text-lg"><a href="/blog/why-you-need-https/" class="postlist-link">Why you need HTTPS</a>
-
-			<br/><span class="font-serif text-md text-gray-600">Published:  <time class=" font-serif postlist-date"
-						datetime="2022-11-03">3 November 2022</time>
-
-
-in 
- <a class="text-gray-600" href="/tags/tech">tech</a>
-
- <a class="text-gray-600" href="/tags/privacy">privacy</a>
-
-
-			</span>
-		</h2>
-	</div>
-	
-</div>
-
-
-<p>See <a href="/tags/">all tags</a>.</p>
-
+</article>
 
 </main>
 
@@ -2184,6 +2281,6 @@ in
 		</div>
 	</div>
 </footer>
-<!-- This page `/tags/tech/` was built on 2024-09-25T03:13:26.474Z -->
+<!-- This page `/glossary/wu-palmer` was built on 2024-09-25T03:13:26.473Z -->
 </body>
 </html>

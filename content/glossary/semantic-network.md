@@ -1,7 +1,7 @@
 ---
 title: 'Semantic network'
 date: '2024-09-24T07:20:23.256Z'
-tags: ['privacy', 'news']
+tags: ['seo', 'machine-learning']
 permalink: "/glossary/semantic-network"
 ---
 
