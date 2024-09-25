@@ -54,7 +54,7 @@ EAA applies to all companies providing products or services to the EU, regardles
 
 Unlike the other laws, the EAA applies to private companies selling products and services used by disabled people, with widely varying accessibility requirements across EU member states.
 
-### Are there any exemptions?
+## Are there any exemptions?
 
 Small companies that employ at most ten persons or have an annual turnover below EUR 2 million are exempt. An additional exception defines that if you can demonstrate "undue burden", you do not need to comply.
 
@@ -74,11 +74,11 @@ How will the EAA be enforced?
 
 The Act is enforced by each EU member state, which means they decide the penalties and appoint the enforcement body.
 
-### Consumers reporting non-compliance
+## Consumers reporting non-compliance
 
 Consumers in each member state must be able to report non-compliance to courts or the authority responsible for enforcing the law. In addition, both private and public organizations must be able to go to court or file a complaint.
 
-### Penalties
+## Penalties
 
 Member states enforce their own penalties for non-compliance, which should be "effective, proportionate, and dissuasive."
 

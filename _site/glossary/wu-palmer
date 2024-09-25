@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Semantic network</title>
+	<title>Wu and palmer similarity measure</title>
 	<meta name="description" content="Sitefig blog">
 	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="sitefig.net">
 	<link rel="alternate" href="/feed/feed.json" type="application/json" title="sitefig.net">
@@ -1509,16 +1509,12 @@ video {
   z-index: 40;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
 }
 
 .m-0 {
@@ -1549,18 +1545,6 @@ video {
   margin-top: 0px;
 }
 
-.ml-4 {
-  margin-left: 1.875rem;
-}
-
-.mb-4 {
-  margin-bottom: 1.875rem;
-}
-
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1573,20 +1557,12 @@ video {
   display: contents;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
 .h-\[100px\] {
   height: 100px;
+}
+
+.h-\[40px\] {
+  height: 40px;
 }
 
 .w-\[156px\] {
@@ -1599,10 +1575,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .max-w-4xl {
@@ -1674,21 +1646,6 @@ video {
   border-color: rgb(15 23 42 / 0.1);
 }
 
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(206 212 218 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 226 230 / var(--tw-border-opacity));
-}
-
 .bg-body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1732,10 +1689,6 @@ video {
   padding: 1.875rem;
 }
 
-.p-2 {
-  padding: 0.46875rem;
-}
-
 .px-3 {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
@@ -1758,6 +1711,14 @@ video {
 
 .pb-10 {
   padding-bottom: 4.6875rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.875rem;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-\[8px\] {
@@ -1788,18 +1749,6 @@ video {
   padding-top: 7px;
 }
 
-.pl-4 {
-  padding-left: 1.875rem;
-}
-
-.pb-4 {
-  padding-bottom: 1.875rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
-}
-
 .text-right {
   text-align: right;
 }
@@ -1818,16 +1767,12 @@ video {
   line-height: 1.875rem;
 }
 
-.leading-\[40px\] {
-  line-height: 40px;
-}
-
-.leading-\[1000px\] {
-  line-height: 1000px;
-}
-
 .leading-\[100px\] {
   line-height: 100px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-gray-600 {
@@ -2043,10 +1988,6 @@ a {
     display: grid;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2094,7 +2035,7 @@ a {
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -2129,7 +2070,7 @@ a {
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -2158,10 +2099,10 @@ a {
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	<article>
-	<h1>Term: Semantic network</h1>
+	<h1>Term: Wu and palmer similarity measure</h1>
 	<time datetime="2024-09-24">24 September 2024</time>
 
 	<ul class="post-metadata flex p-0 m-0">
@@ -2169,7 +2110,7 @@ a {
 		<li class="list-none ps-0 pr-2"><a href="/tags/machine-learning/" class="post-tag">machine-learning</a></li>
 	</ul>
 
-	<h3 id="wu-and-palmer-similarity-measure" tabindex="-1">Wu and Palmer Similarity Measure: <a class="header-anchor" href="#wu-and-palmer-similarity-measure">#</a></h3>
+	<h2 id="wu-and-palmer-similarity-measure" tabindex="-1">Wu and Palmer Similarity Measure: <a class="header-anchor" href="#wu-and-palmer-similarity-measure">#</a></h2>
 <p>A semantic similarity measure used to calculate the relatedness of concepts in a hierarchical structure, such as an ontology. The measure is defined as:</p>
 <p>$$SimWP(X, Y) = \frac{2 \times N}{N1 + N2}$$</p>
 <p>Where:</p>
@@ -2201,13 +2142,13 @@ a {
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -2281,6 +2222,6 @@ a {
 		</div>
 	</div>
 </footer>
-<!-- This page `/glossary/wu-palmer` was built on 2024-09-25T03:13:26.473Z -->
+<!-- This page `/glossary/wu-palmer` was built on 2024-09-25T03:40:08.845Z -->
 </body>
 </html>

@@ -6,7 +6,7 @@ draft: false
 category: "news"
 summary:  "The new release includes PDF verification, basic validation and accessibility checks. We also moved to a new cloud provider."
 ---
-### PDF verification
+## PDF verification
 
 Verifying PDF documents is rather tricky and cumbersome. That is why Sitefig Enterprise now includes PDF verification.
 
@@ -25,7 +25,7 @@ The release contains the following audits:
 *   Corrupt Pdf documents
 *   Broken link check extended to PDF documents.
 
-### A new cloud provider: Exoscale
+## A new cloud provider: Exoscale
 
 Sitefig recently switched to a new provider: Exoscale.
 
@@ -37,7 +37,7 @@ All data is stored in the Frankfurt data centre, and the company Exoscale is a r
 
 The switch also allowed us to improve the crawling speed for multiple customers. All customer crawls now run in complete isolation, improving the performance metrics reporting and time to finish a website crawl and analysis.
 
-### What is next?
+## What is next?
 
 Due to the move to Exoscale, many features were waiting in the backlog. The next feature that is coming up is audit handling and ticketing support. "Ignore" audits and/or tagging audits for review Connecting audits with tickets Jira integration Creating tickets from Sitefig
 

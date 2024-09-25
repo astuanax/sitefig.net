@@ -1509,16 +1509,12 @@ video {
   z-index: 40;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
 }
 
 .m-0 {
@@ -1549,18 +1545,6 @@ video {
   margin-top: 0px;
 }
 
-.ml-4 {
-  margin-left: 1.875rem;
-}
-
-.mb-4 {
-  margin-bottom: 1.875rem;
-}
-
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1573,20 +1557,12 @@ video {
   display: contents;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
 .h-\[100px\] {
   height: 100px;
+}
+
+.h-\[40px\] {
+  height: 40px;
 }
 
 .w-\[156px\] {
@@ -1599,10 +1575,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .max-w-4xl {
@@ -1674,21 +1646,6 @@ video {
   border-color: rgb(15 23 42 / 0.1);
 }
 
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(206 212 218 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 226 230 / var(--tw-border-opacity));
-}
-
 .bg-body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1732,10 +1689,6 @@ video {
   padding: 1.875rem;
 }
 
-.p-2 {
-  padding: 0.46875rem;
-}
-
 .px-3 {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
@@ -1758,6 +1711,14 @@ video {
 
 .pb-10 {
   padding-bottom: 4.6875rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.875rem;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-\[8px\] {
@@ -1788,18 +1749,6 @@ video {
   padding-top: 7px;
 }
 
-.pl-4 {
-  padding-left: 1.875rem;
-}
-
-.pb-4 {
-  padding-bottom: 1.875rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
-}
-
 .text-right {
   text-align: right;
 }
@@ -1818,16 +1767,12 @@ video {
   line-height: 1.875rem;
 }
 
-.leading-\[40px\] {
-  line-height: 40px;
-}
-
-.leading-\[1000px\] {
-  line-height: 1000px;
-}
-
 .leading-\[100px\] {
   line-height: 100px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-gray-600 {
@@ -2043,10 +1988,6 @@ a {
     display: grid;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2094,7 +2035,7 @@ a {
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -2129,7 +2070,7 @@ a {
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -2158,7 +2099,7 @@ a {
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	<article>
 	<h1>Website monitoring and auditing with Lighthouse</h1>
@@ -2171,7 +2112,7 @@ a {
 		</li>
 	</ul>
 
-	<h3 id="open-source-made-by-google" tabindex="-1">Open-source made by Google <a class="header-anchor" href="#open-source-made-by-google">#</a></h3>
+	<h2 id="open-source-made-by-google" tabindex="-1">Open-source made by Google <a class="header-anchor" href="#open-source-made-by-google">#</a></h2>
 <p>Lighthouse is an open-source application developed by Google that can evaluate the performance, technical SEO and accessibility of a webpage.</p>
 <p>If you have never heard from Lighthouse, try it yourself.</p>
 <ul>
@@ -2185,18 +2126,18 @@ a {
 <p>Or let's say you have 20 templates? Will the developer test each template and some reference pages with it?</p>
 <p>Most development teams will need more time to run these tests. And I am sure managers prefer expensive developers to focus on other tasks. Right?</p>
 <p>Sitefig uses Lighthouse to audit and monitors all pages on your website using both standard and custom audits.</p>
-<h3 id="custom-audit-accessibility" tabindex="-1">Custom audit accessibility <a class="header-anchor" href="#custom-audit-accessibility">#</a></h3>
+<h2 id="custom-audit-accessibility" tabindex="-1">Custom audit accessibility <a class="header-anchor" href="#custom-audit-accessibility">#</a></h2>
 <p>Accessibility is one of those custom audits because the standard Lighthouse runs only a limited set of audits.</p>
 <p>Our Accessibility audit covers the latest in open-source technology, which we complement with a list of other accessibility issues ranging from identifying emojis to CSS issues that affect accessibility.</p>
 <p>Sitefig also stores screenshots of how the website looks for people with limited vision and color-blindness. <img src="/static/images/sitefig_net_screenshot_663f9fbf75.png" alt="alt"></p>
-<h3 id="custom-audit-for-broken-links" tabindex="-1">Custom audit for broken links <a class="header-anchor" href="#custom-audit-for-broken-links">#</a></h3>
+<h2 id="custom-audit-for-broken-links" tabindex="-1">Custom audit for broken links <a class="header-anchor" href="#custom-audit-for-broken-links">#</a></h2>
 <p>To ensure Sitefig finds all potential links, we drill deep into the code and HTTP headers to find all likely URLs available on your website.</p>
 <p>Once we have a list of URLs available on your website, all these are verified and retrieved. The broken link check includes audits for broken SSL/TLS certificates, missing DNS, and invalid URL syntax.</p>
-<h3 id="standard-performance-audit" tabindex="-1">Standard Performance audit <a class="header-anchor" href="#standard-performance-audit">#</a></h3>
+<h2 id="standard-performance-audit" tabindex="-1">Standard Performance audit <a class="header-anchor" href="#standard-performance-audit">#</a></h2>
 <p>The Core web metrics recorded by Lighthouse are lab results based on an actual browser with 1 CPU and 1.5 Gb available memory. The metrics are based on the same hardware and network throughput baseline. That way, Sitefig can reliably compare results between pages and between websites using, avoiding fluctuating real-world conditions.</p>
 <p><img src="/static/images/performance_screen_7de2f13563.png" alt="alt"></p>
 <p>Besides the lab results, Sitefig also pulls all the real-world data from Google and analyses it to see which pages perform and which do not.</p>
-<h3 id="lighthouse-is-a-core-part-of-sitefig" tabindex="-1">Lighthouse is a core part of Sitefig. <a class="header-anchor" href="#lighthouse-is-a-core-part-of-sitefig">#</a></h3>
+<h2 id="lighthouse-is-a-core-part-of-sitefig" tabindex="-1">Lighthouse is a core part of Sitefig. <a class="header-anchor" href="#lighthouse-is-a-core-part-of-sitefig">#</a></h2>
 <p>The Lighthouse application is a core part of our crawler and auditing infrastructure.</p>
 <p>It records performance metrics, identifies privacy issues around trackers and cookies, and allows slow-level access to any part of the code of a webpage.</p>
 <p>It is used with standard and custom audits and is loaded using a real browser, Chromium, using the same resources for each run.</p>
@@ -2230,13 +2171,13 @@ a {
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -2310,6 +2251,6 @@ a {
 		</div>
 	</div>
 </footer>
-<!-- This page `/blog/website-auditing-monitoring/` was built on 2024-09-25T03:13:26.473Z -->
+<!-- This page `/blog/website-auditing-monitoring/` was built on 2024-09-25T03:40:08.844Z -->
 </body>
 </html>

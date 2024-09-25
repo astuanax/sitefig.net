@@ -10,7 +10,7 @@ I have been quiet for some time, but not anymore. Sitefig deployed a significant
 
 While the deployments have been continuous and discreet, this new release bumps the version up to v2.0 as many new items have been updated and added.
 
-## What new features are available and why?
+# What new features are available and why?
 
 The accessibility community posted several example websites with use cases in which automated auditing software fails. Claiming that most of the accessibility fails cannot be solved with automated software.
 
@@ -25,12 +25,12 @@ Nothing will be understandable.
 
 Sitefig analyses all content, including the language of title, description, alt and title attributes, to ensure all text is properly annotated with the correct language tag.
 
-### HTML5 and Screenreaders
+## HTML5 and Screenreaders
 
 Screenreaders and browsers only sometimes play nice.
 Some HTML5 elements will be discarded even though using them makes sense. Sitefig now audits your websites for non-supported HTML5 elements.
 
-## Privacy upgrades
+# Privacy upgrades
 
 Sitefig also records network traffic to identify potential privacy issues on your website. Most websites nowadays connect to many different domain names to load fonts, javascript, or images. These domains provide their services from different countries and continents.
 
@@ -40,7 +40,7 @@ Additionally, Sitefig records cookies before and after consent and categorizes e
 
 Sitefig also has PII scanners that scan for names, physical addresses, email and telephone numbers, VAT, credit card numbers, and other types of sensitive data. We have upgraded the physical address scanner and now support scanning in 11 languages and many more countries.
 
-## Supported EU Languages
+# Supported EU Languages
 
 Sitefig supports the following languages when auditing for accessibility issues related to languages, as well as scanning for PII:
 - Hungarian
@@ -55,7 +55,7 @@ Sitefig supports the following languages when auditing for accessibility issues 
 - Spanish
 - Italian
 
-## New documentation
+# New documentation
 
 The documentation needed some love, and now it has been redesigned to align more with WCAG requirements and has a more straightforward and sleeker look.
 

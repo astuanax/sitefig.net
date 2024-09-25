@@ -1,10 +1,10 @@
 ---
-title: 'Semantic network'
+title: 'Wu and palmer similarity measure'
 date: '2024-09-24T07:20:23.256Z'
 tags: ['seo', 'machine-learning']
 permalink: "/glossary/wu-palmer"
 ---
-### Wu and Palmer Similarity Measure:
+## Wu and Palmer Similarity Measure:
 
 A semantic similarity measure used to calculate the relatedness of concepts in a hierarchical structure, such as an ontology. The measure is defined as:
 

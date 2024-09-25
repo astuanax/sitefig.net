@@ -5,7 +5,7 @@ tags: ['seo', 'machine-learning']
 permalink: "/glossary/semantic-network"
 ---
 
-### Semantic Networks
+## Semantic Networks
 
 **Definition:**
 A *semantic network* is a graphical representation of knowledge in which concepts (or nodes) are connected by edges that represent relationships between them. This structure models how information is organized and stored in the mind, often used in artificial intelligence, linguistics, and cognitive science to demonstrate relationships between concepts, such as hierarchy, similarity, or association.

@@ -1509,16 +1509,12 @@ video {
   z-index: 40;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
 }
 
 .m-0 {
@@ -1549,18 +1545,6 @@ video {
   margin-top: 0px;
 }
 
-.ml-4 {
-  margin-left: 1.875rem;
-}
-
-.mb-4 {
-  margin-bottom: 1.875rem;
-}
-
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1573,20 +1557,12 @@ video {
   display: contents;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
 .h-\[100px\] {
   height: 100px;
+}
+
+.h-\[40px\] {
+  height: 40px;
 }
 
 .w-\[156px\] {
@@ -1599,10 +1575,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .max-w-4xl {
@@ -1674,21 +1646,6 @@ video {
   border-color: rgb(15 23 42 / 0.1);
 }
 
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(206 212 218 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 226 230 / var(--tw-border-opacity));
-}
-
 .bg-body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1732,10 +1689,6 @@ video {
   padding: 1.875rem;
 }
 
-.p-2 {
-  padding: 0.46875rem;
-}
-
 .px-3 {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
@@ -1758,6 +1711,14 @@ video {
 
 .pb-10 {
   padding-bottom: 4.6875rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.875rem;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-\[8px\] {
@@ -1788,18 +1749,6 @@ video {
   padding-top: 7px;
 }
 
-.pl-4 {
-  padding-left: 1.875rem;
-}
-
-.pb-4 {
-  padding-bottom: 1.875rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
-}
-
 .text-right {
   text-align: right;
 }
@@ -1818,16 +1767,12 @@ video {
   line-height: 1.875rem;
 }
 
-.leading-\[40px\] {
-  line-height: 40px;
-}
-
-.leading-\[1000px\] {
-  line-height: 1000px;
-}
-
 .leading-\[100px\] {
   line-height: 100px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-gray-600 {
@@ -2043,10 +1988,6 @@ a {
     display: grid;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2094,7 +2035,7 @@ a {
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -2129,7 +2070,7 @@ a {
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -2158,7 +2099,7 @@ a {
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	<article>
 	<h1>European Accessibility Act and the private sector</h1>
@@ -2199,7 +2140,7 @@ a {
 <h2 id="which-companies-have-to-comply" tabindex="-1">Which companies have to comply? <a class="header-anchor" href="#which-companies-have-to-comply">#</a></h2>
 <p>EAA applies to all companies providing products or services to the EU, regardless of location.</p>
 <p>Unlike the other laws, the EAA applies to private companies selling products and services used by disabled people, with widely varying accessibility requirements across EU member states.</p>
-<h3 id="are-there-any-exemptions" tabindex="-1">Are there any exemptions? <a class="header-anchor" href="#are-there-any-exemptions">#</a></h3>
+<h2 id="are-there-any-exemptions" tabindex="-1">Are there any exemptions? <a class="header-anchor" href="#are-there-any-exemptions">#</a></h2>
 <p>Small companies that employ at most ten persons or have an annual turnover below EUR 2 million are exempt. An additional exception defines that if you can demonstrate &quot;undue burden&quot;, you do not need to comply.</p>
 <p>Additionally, there are limitations to what a company must make accessible.</p>
 <p>The Act defines the following content exemptions:</p>
@@ -2213,9 +2154,9 @@ a {
 </ul>
 <h2 id="how-will-the-eaa-be-enforced" tabindex="-1">How will the EAA be enforced? <a class="header-anchor" href="#how-will-the-eaa-be-enforced">#</a></h2>
 <p>The Act is enforced by each EU member state, which means they decide the penalties and appoint the enforcement body.</p>
-<h3 id="consumers-reporting-non-compliance" tabindex="-1">Consumers reporting non-compliance <a class="header-anchor" href="#consumers-reporting-non-compliance">#</a></h3>
+<h2 id="consumers-reporting-non-compliance" tabindex="-1">Consumers reporting non-compliance <a class="header-anchor" href="#consumers-reporting-non-compliance">#</a></h2>
 <p>Consumers in each member state must be able to report non-compliance to courts or the authority responsible for enforcing the law. In addition, both private and public organizations must be able to go to court or file a complaint.</p>
-<h3 id="penalties" tabindex="-1">Penalties <a class="header-anchor" href="#penalties">#</a></h3>
+<h2 id="penalties" tabindex="-1">Penalties <a class="header-anchor" href="#penalties">#</a></h2>
 <p>Member states enforce their own penalties for non-compliance, which should be &quot;effective, proportionate, and dissuasive.&quot;</p>
 <h2 id="what-is-the-eaa-timeline" tabindex="-1">What is the EAA timeline? <a class="header-anchor" href="#what-is-the-eaa-timeline">#</a></h2>
 <p>Ultimately your website needs to be compliant by July 2025.</p>
@@ -2280,13 +2221,13 @@ a {
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -2360,6 +2301,6 @@ a {
 		</div>
 	</div>
 </footer>
-<!-- This page `/blog/european-acessibility-act/` was built on 2024-09-25T03:13:26.473Z -->
+<!-- This page `/blog/european-acessibility-act/` was built on 2024-09-25T03:40:08.844Z -->
 </body>
 </html>

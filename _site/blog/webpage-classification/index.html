@@ -1509,16 +1509,12 @@ video {
   z-index: 40;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
 }
 
 .m-0 {
@@ -1549,18 +1545,6 @@ video {
   margin-top: 0px;
 }
 
-.ml-4 {
-  margin-left: 1.875rem;
-}
-
-.mb-4 {
-  margin-bottom: 1.875rem;
-}
-
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1573,20 +1557,12 @@ video {
   display: contents;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
 .h-\[100px\] {
   height: 100px;
+}
+
+.h-\[40px\] {
+  height: 40px;
 }
 
 .w-\[156px\] {
@@ -1599,10 +1575,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .max-w-4xl {
@@ -1674,21 +1646,6 @@ video {
   border-color: rgb(15 23 42 / 0.1);
 }
 
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(206 212 218 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 226 230 / var(--tw-border-opacity));
-}
-
 .bg-body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1732,10 +1689,6 @@ video {
   padding: 1.875rem;
 }
 
-.p-2 {
-  padding: 0.46875rem;
-}
-
 .px-3 {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
@@ -1758,6 +1711,14 @@ video {
 
 .pb-10 {
   padding-bottom: 4.6875rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.875rem;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-\[8px\] {
@@ -1788,18 +1749,6 @@ video {
   padding-top: 7px;
 }
 
-.pl-4 {
-  padding-left: 1.875rem;
-}
-
-.pb-4 {
-  padding-bottom: 1.875rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
-}
-
 .text-right {
   text-align: right;
 }
@@ -1818,16 +1767,12 @@ video {
   line-height: 1.875rem;
 }
 
-.leading-\[40px\] {
-  line-height: 40px;
-}
-
-.leading-\[1000px\] {
-  line-height: 1000px;
-}
-
 .leading-\[100px\] {
   line-height: 100px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-gray-600 {
@@ -2043,10 +1988,6 @@ a {
     display: grid;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2094,7 +2035,7 @@ a {
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -2129,7 +2070,7 @@ a {
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -2158,7 +2099,7 @@ a {
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	<article>
 	<h1>Leveraging WordNet for Web Page Classification Using Semantic Networks</h1>
@@ -2187,7 +2128,7 @@ a {
 <p>Web page classification is crucial in improving information retrieval and organizing content. Automated classification methods are essential as the World Wide Web grows exponentially and content becomes a real asset again. The research paper &quot;Web Page Classification Using WordNet's Linguistic Information&quot; explores the use of semantic networks, particularly WordNet and GreekWordNet, to enhance web page classification. The paper demonstrates how linguistic data, combined with word sense disambiguation (WSD) and semantic similarity measures, can effectively categorize web pages into predefined thematic areas.</p>
 <p>Even though today's search engines apply disambiguation to complete sentences and phrases instead of single words, the technique is still useful to learn to better understand how algorithms like BERT are used</p>
 <hr>
-<h3 id="semantic-networks-and-word-sense-disambiguation" tabindex="-1">Semantic Networks and Word Sense Disambiguation <a class="header-anchor" href="#semantic-networks-and-word-sense-disambiguation">#</a></h3>
+<h2 id="semantic-networks-and-word-sense-disambiguation" tabindex="-1">Semantic Networks and Word Sense Disambiguation <a class="header-anchor" href="#semantic-networks-and-word-sense-disambiguation">#</a></h2>
 <p>Semantic networks like WordNet represent concepts (nodes) and the relationships between them (edges). WordNet groups words into sets of cognitive synonyms called <em>synsets</em>, which express distinct concepts.</p>
 <p>WordNet is a specific type of semantic network that groups words with similar meanings into sets called synsets. Each synset represents a specific meaning or idea. For example, in WordNet, the word &quot;bank&quot; might be part of one synset that refers to a place for money and another synset that refers to the side of a river. This technique allows applications to &quot;understand&quot; and select which meaning of a word you’re referring to.</p>
 <p>A problem in sorting text into categories (text classification) is figuring out the right meaning of a word when it has multiple meanings. This is called word sense disambiguation (WSD). It means deciding which meaning of a word fits best based on the words around it.</p>
@@ -2208,7 +2149,7 @@ print(f&quot;Definition: {sense.definition()}&quot;)
 </code></pre>
 <p>This function selects the correct meaning of &quot;bank&quot; based on the sentence. However, the paper uses a more sophisticated approach based on semantic similarity.</p>
 <hr>
-<h3 id="semantic-similarity-measures" tabindex="-1">Semantic Similarity Measures <a class="header-anchor" href="#semantic-similarity-measures">#</a></h3>
+<h2 id="semantic-similarity-measures" tabindex="-1">Semantic Similarity Measures <a class="header-anchor" href="#semantic-similarity-measures">#</a></h2>
 <p>The authors use two categories of semantic similarity measures: <strong>edge counting measures</strong> and <strong>information content measures</strong>. These measures calculate the closeness of concepts within WordNet's hierarchy. Below are some of the key measures:</p>
 <ol>
 <li><strong>Wu and Palmer (wup)</strong>: Measures similarity based on the depth of the concepts in the taxonomy.</li>
@@ -2228,7 +2169,7 @@ print(f&quot;Wu-Palmer Similarity between {word1.name()} and {word2.name()}: {si
 </code></pre>
 <p>In the study, <strong>co-occurring synsets</strong> provided better classification results, especially when combined with these semantic measures. For example, using the <strong>Jiang and Conrath</strong> similarity measure improved disambiguation accuracy in the experiments.</p>
 <hr>
-<h3 id="web-page-classification-algorithm" tabindex="-1">Web Page Classification Algorithm <a class="header-anchor" href="#web-page-classification-algorithm">#</a></h3>
+<h2 id="web-page-classification-algorithm" tabindex="-1">Web Page Classification Algorithm <a class="header-anchor" href="#web-page-classification-algorithm">#</a></h2>
 <p>The classification algorithm developed in the paper focuses on analyzing anchor text (the clickable text of a hyperlink), as it often provides a concise summary of the linked page's content. The steps involved are:</p>
 <ol>
 <li><strong>Extract anchor text</strong> from the web page.</li>
@@ -2260,7 +2201,7 @@ for word_id in tfidf_matrix[doc_id].nonzero()[1]:
 </code></pre>
 <p>This example shows how TF-IDF helps in feature extraction for classification, giving higher weights to words like &quot;car&quot; and &quot;automobile&quot; in automotive-related documents.</p>
 <hr>
-<h3 id="experimental-results" tabindex="-1">Experimental Results <a class="header-anchor" href="#experimental-results">#</a></h3>
+<h2 id="experimental-results" tabindex="-1">Experimental Results <a class="header-anchor" href="#experimental-results">#</a></h2>
 <p>The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using <strong>co-occurring WordNet synsets</strong>, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.</p>
 <p>Key findings include:</p>
 <ul>
@@ -2269,7 +2210,7 @@ for word_id in tfidf_matrix[doc_id].nonzero()[1]:
 <li>The performance was enhanced by combining different similarity measures and using WordNet's semantic hierarchy.</li>
 </ul>
 <hr>
-<h3 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h3>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h2>
 <p>Even though most of these technique as described are no longer used, understanding how this applies to search engine and SEO is still valuable. It explains why, for example, anchor text is such an important aspect of building internal linking.</p>
 <p>Using generic text, such as &quot;read more&quot; for links would effectively disallow any application to disambiguate the words of the linked page.</p>
 <hr>
@@ -2306,13 +2247,13 @@ for word_id in tfidf_matrix[doc_id].nonzero()[1]:
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -2386,6 +2327,6 @@ for word_id in tfidf_matrix[doc_id].nonzero()[1]:
 		</div>
 	</div>
 </footer>
-<!-- This page `/blog/webpage-classification/` was built on 2024-09-25T03:13:26.473Z -->
+<!-- This page `/blog/webpage-classification/` was built on 2024-09-25T03:40:08.844Z -->
 </body>
 </html>

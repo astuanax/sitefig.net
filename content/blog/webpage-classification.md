@@ -36,7 +36,7 @@ Even though today's search engines apply disambiguation to complete sentences an
 
 ---
 
-### Semantic Networks and Word Sense Disambiguation
+## Semantic Networks and Word Sense Disambiguation
 
 Semantic networks like WordNet represent concepts (nodes) and the relationships between them (edges). WordNet groups words into sets of cognitive synonyms called *synsets*, which express distinct concepts.
 
@@ -67,7 +67,7 @@ This function selects the correct meaning of "bank" based on the sentence. Howev
 
 ---
 
-### Semantic Similarity Measures
+## Semantic Similarity Measures
 
 The authors use two categories of semantic similarity measures: **edge counting measures** and **information content measures**. These measures calculate the closeness of concepts within WordNet's hierarchy. Below are some of the key measures:
 
@@ -93,7 +93,7 @@ In the study, **co-occurring synsets** provided better classification results, e
 
 ---
 
-### Web Page Classification Algorithm
+## Web Page Classification Algorithm
 
 The classification algorithm developed in the paper focuses on analyzing anchor text (the clickable text of a hyperlink), as it often provides a concise summary of the linked page's content. The steps involved are:
 
@@ -131,7 +131,7 @@ This example shows how TF-IDF helps in feature extraction for classification, gi
 
 ---
 
-### Experimental Results
+## Experimental Results
 
 The paper compares various classification approaches and semantic similarity measures. For English web pages, the best results were obtained using **co-occurring WordNet synsets**, especially when paired with the Leacock-Chodorow and Wu-Palmer measures. The classifier could assign a web page to one of 245 categories with significant accuracy.
 
@@ -142,7 +142,7 @@ Key findings include:
 
 ---
 
-### Conclusion
+## Conclusion
 
 Even though most of these technique as described are no longer used, understanding how this applies to search engine and SEO is still valuable. It explains why, for example, anchor text is such an important aspect of building internal linking.
 

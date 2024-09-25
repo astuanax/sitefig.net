@@ -38,7 +38,7 @@
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -73,7 +73,7 @@
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -98,7 +98,7 @@
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	{{ content | safe }}
 </main>
@@ -111,13 +111,13 @@
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>

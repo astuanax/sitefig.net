@@ -7,7 +7,7 @@ category: "accessibility"
 summary:  "Learn why businesses must comply with the European Accessibility Act by 2025, the steps to achieve compliance, and how tools like Sitefig can help you avoid penalties while making your digital services accessible to all."
 ---
 
-### What Businesses Need to Know and How to Prepare for 2025
+## What Businesses Need to Know and How to Prepare for 2025
 
 As a consultant and Saas founder, I can confidently say that the [European Accessibility Act (EAA)][2] represents a significant shift in the digital landscape.
 
@@ -19,7 +19,7 @@ The EAA is a game-changer for several reasons:
 2.  It harmonizes accessibility standards across the EU, creating a more unified market for accessible products and services.
 3.  It covers a broad range of digital products and services, from e-commerce platforms to smartphones and e-books.
 
-### Key Implications for Businesses
+## Key Implications for Businesses
 
 My advise to businesses is to focus on the following areas:
 
@@ -27,7 +27,7 @@ My advise to businesses is to focus on the following areas:
 2.  **POUR Principles**: Align your accessibility strategy with the POUR principles (Perceivable, Operable, Understandable, Robust) which form the foundation of the Web Content Accessibility Guidelines (WCAG).
 3.  **Cross-border Considerations**: For businesses operating in multiple EU countries, pay special attention to language and localization aspects of accessibility.
 
-### Preparing for 2025
+## Preparing for 2025
 
 The June 28, 2025 enforcement date may seem distant, but in my experience, businesses often underestimate the time and resources required for full compliance. Here's what I recommend:
 
@@ -62,7 +62,7 @@ Tools like Sitefig can be invaluable in your accessibility journey. They can hel
 
 If you have a significant number of websites and applications, you will have to start with automated testing. Preferably, you will use a tool that can identify which pages need manual auditing and can monitor your progress over time.
 
-### Why Should Businesses Care About the European Accessibility Act?
+## Why Should Businesses Care About the European Accessibility Act?
 
 1.  **Legal Obligations and Consequences**
 
@@ -70,11 +70,11 @@ The European Accessibility Act, officially adopted in 2019, becomes enforceable 
 
 From this date, businesses offering services or products in the EU must comply with stringent accessibility requirements. Failure to do so can lead to fines, legal actions, and exclusion from public procurement processes. Penalties for non-compliance vary by country but can reach up to millions of euros depending on the breach's severity and the business's size.
 
-1.  **Inclusion and Market Expansion**
+2.  **Inclusion and Market Expansion**
 
 Adhering to the EAA is not just about avoiding penalties; it's about embracing inclusivity. According to [Eurostat, over 27% of the EU population has some form of disability][10]. Ignoring accessibility means limiting your potential market and alienating a significant portion of your audience. By complying with the EAA, you'll open your products and services to more customers, including those with disabilities, temporary impairments, or situational needs.
 
-1.  **Competitive Edge and Innovation**
+3**Competitive Edge and Innovation**
 
 Accessibility can drive innovation. The challenge of designing products and services for all users often leads to new, creative solutions that improve usability for everyone. Businesses that prioritize accessibility from the start will likely stay ahead of competitors, enhance their reputation, and build customer trust.
 
@@ -135,7 +135,7 @@ The consequences of failing to meet the EAA's requirements go beyond financial p
 3.  **Loss of contracts**: Inaccessible products and services may be excluded from public procurement and private contracts, leading to a loss of business opportunities.
 4.  **Reputational damage**: Companies that fail to prioritize accessibility risk losing customer trust and loyalty.
 
-### How Sitefig Can Help Businesses Get Ready
+## How Sitefig Can Help Businesses Get Ready
 
 For businesses looking to get ahead of the 2025 deadline, **Sitefig** offers a powerful solution. Sitefig's automated tools help companies identify and fix accessibility issues, ensuring compliance with the EAA's digital accessibility requirements.
 
@@ -157,7 +157,7 @@ The clock is ticking. June 2025 may seem far away, but businesses must take imme
 3.  **Develop an action plan**: Create a roadmap to address accessibility issues across your digital platforms. Set clear deadlines and assign responsibilities to team members to ensure timely compliance.
 4.  **Monitor progress**: Implement ongoing monitoring to ensure your products and services remain accessible as you update or expand them. Regularly review your accessibility statement to ensure it reflects the current state of your digital services.
 
-### Conclusion
+## Conclusion
 
 The European Accessibility Act represents a significant step forward in ensuring equal access to products and services across the EU. For businesses, this is both a challenge and an opportunity. By embracing accessibility, you can expand your market, enhance customer satisfaction, and drive innovation. With the right tools, like Sitefig, and a proactive approach, your business can navigate the complexities of the EAA and emerge stronger, more inclusive, and fully compliant by the June 2025 deadline. Don't wait — start your accessibility journey today.
 

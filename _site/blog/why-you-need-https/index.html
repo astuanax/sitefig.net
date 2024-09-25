@@ -1509,16 +1509,12 @@ video {
   z-index: 40;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
 }
 
 .m-0 {
@@ -1549,18 +1545,6 @@ video {
   margin-top: 0px;
 }
 
-.ml-4 {
-  margin-left: 1.875rem;
-}
-
-.mb-4 {
-  margin-bottom: 1.875rem;
-}
-
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -1573,20 +1557,12 @@ video {
   display: contents;
 }
 
-.h-\[40px\] {
-  height: 40px;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
 .h-\[100px\] {
   height: 100px;
+}
+
+.h-\[40px\] {
+  height: 40px;
 }
 
 .w-\[156px\] {
@@ -1599,10 +1575,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .max-w-4xl {
@@ -1674,21 +1646,6 @@ video {
   border-color: rgb(15 23 42 / 0.1);
 }
 
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 117 125 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(206 212 218 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 226 230 / var(--tw-border-opacity));
-}
-
 .bg-body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1732,10 +1689,6 @@ video {
   padding: 1.875rem;
 }
 
-.p-2 {
-  padding: 0.46875rem;
-}
-
 .px-3 {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
@@ -1758,6 +1711,14 @@ video {
 
 .pb-10 {
   padding-bottom: 4.6875rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.875rem;
+}
+
+.pl-0 {
+  padding-left: 0px;
 }
 
 .pl-\[8px\] {
@@ -1788,18 +1749,6 @@ video {
   padding-top: 7px;
 }
 
-.pl-4 {
-  padding-left: 1.875rem;
-}
-
-.pb-4 {
-  padding-bottom: 1.875rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
-}
-
 .text-right {
   text-align: right;
 }
@@ -1818,16 +1767,12 @@ video {
   line-height: 1.875rem;
 }
 
-.leading-\[40px\] {
-  line-height: 40px;
-}
-
-.leading-\[1000px\] {
-  line-height: 1000px;
-}
-
 .leading-\[100px\] {
   line-height: 100px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-gray-600 {
@@ -2043,10 +1988,6 @@ a {
     display: grid;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2094,7 +2035,7 @@ a {
 	<a class="visually-hidden" href="#main">Skip to content</a>
 	<a class="visually-hidden" href="#footer">Skip to footer</a>
 	<div class="p-4 border-l border-solid border-gray-200 h-[100px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[100px]">
-		<a href="/" aria-expanded="false" aria-control="branding"
+		<a href="/" aria-expanded="false"
 			 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 			<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 				<defs>
@@ -2129,7 +2070,7 @@ a {
 			</svg>
 			Sitefig.eu</a>
 
-		<nav class="">
+		<nav>
 			<ul class="flex flex-wrap leading-[40px]">
 				<li class="pr-4"><a href="/">Home</a></li>
 				<li class="pr-4"><a href="/blog/">Archive</a></li>
@@ -2158,7 +2099,7 @@ a {
 <!--			</nav>-->
 <!--					 </div></div></header>-->
 
-<main id="skip"
+<main id="main"
 			class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 	<article>
 	<h1>Why you need HTTPS</h1>
@@ -2171,21 +2112,21 @@ a {
 		</li>
 	</ul>
 
-	<h3 id="everything-you-need-to-know-about-securing-your-website" tabindex="-1">Everything you need to know about securing your website <a class="header-anchor" href="#everything-you-need-to-know-about-securing-your-website">#</a></h3>
+	<h2 id="everything-you-need-to-know-about-securing-your-website" tabindex="-1">Everything you need to know about securing your website <a class="header-anchor" href="#everything-you-need-to-know-about-securing-your-website">#</a></h2>
 <p>All websites these days should use HTTPS (Hypertext Transfer Protocol Secure).\nYes, there was a time TLS (Transport Layer Security) certificates were unnecessary, but today you really cannot go without them. Here is why!
 <a href="%22https://nl.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure%22">HTTPS</a> is the encrypted version of HTTP (Hypertext Transfer Protocol), the protocol used for transferring data to your browsers. The HTTPS protocol relies on a TLS certificate to encrypt all the data between your computer and the server. As a result, HTTPS prevents anyone from tampering with the data and ensures content integrity, and it works both ways: when receiving and sending data such as usernames, passwords and visa card numbers.
 The benefits of having a secured website far outweigh the downsides, which range from personal data loss, website impersonation attacks and lawsuits brought to you by any DPA (Data Protection Authority) in Europe.
 For example, in 2021, <a href="%22https://edpb.europa.eu/news/national-news/2021/dutch-dpa-orthodontic-practice-fined-unsecured-patient-website_en%22">the Dutch DPA imposed a €12,000 fine</a> on an orthodontic practice for allowing new patients to register on an unsecured website.
 We can obtain TLS certificates for free, which means paying that hefty price was unnecessary.</p>
-<h3 id="the-benefits-of-a-secure-website" tabindex="-1">The benefits of a secure website <a class="header-anchor" href="#the-benefits-of-a-secure-website">#</a></h3>
-<h4 id="security" tabindex="-1">Security <a class="header-anchor" href="#security">#</a></h4>
+<h2 id="the-benefits-of-a-secure-website" tabindex="-1">The benefits of a secure website <a class="header-anchor" href="#the-benefits-of-a-secure-website">#</a></h2>
+<h3 id="security" tabindex="-1">Security <a class="header-anchor" href="#security">#</a></h3>
 <p>With HTTPS, intruders can’t manipulate or passively listen in on the communications between your site and your users. An HTTPS connection provides additional security and privacy for your company and customers.
 The encryption makes it practically impossible to eavesdrop or snoop on any communication. While your customers are online, browsing or entering sensitive data on your website, nobody will be able to track what they are doing.
 Additionally, the company operating the website can be sure that no 3rd party is making changes to the website and the customer effectively sees the website as expected. You might be surprised how many companies have injected marketing messages, advertising, script and images onto pages browsed on open WiFi networks. It happened pretty often.
 Luckily the need for privacy increased, and TLS certificates became much more common. Most of the <a href="%22https://trends.builtwith.com/ssl%22">websites in the top 1 million are now using HTTPS</a> .
 The certificate is also a means of authentication and proves that your user sees and uses the intended website.
 <img src="%22/img/J4_aFtD2N6-300.png%22" alt="alt"></p>
-<h4 id="privacy-and-trust" tabindex="-1">Privacy and trust <a class="header-anchor" href="#privacy-and-trust">#</a></h4>
+<h3 id="privacy-and-trust" tabindex="-1">Privacy and trust <a class="header-anchor" href="#privacy-and-trust">#</a></h3>
 <p>Besides security for your company and your customer, privacy concerns have become the focal point of several new directives and legislation efforts worldwide.
 We already mentioned the need to use HTTP to avoid anyone snooping n the communication between your website and the customers’ browser. Here is why that is important.
 In 2021 a complaint was lodged to the Dutch DPA about the website of an orthodontic practice. The registration forms on the website in question asked for all kinds of personal data about the patient’s health.
@@ -2196,26 +2137,26 @@ This kind of data breach is difficult to detect, but you are still liable and ne
 The GDPR directive states that data processing must be handled in such a way as to ensure appropriate security, integrity, and confidentiality (e.g. by using encryption).
 The GDPR documents, here and here, explicitly define the need for encryption, though no article expressly documents the usage of a TLS certificate on your website.
 So, in theory, you don’t need it. In practice, though, it is strongly recommended as it conveys trust and keeps prying eyes away.</p>
-<h3 id="seo-and-google" tabindex="-1">SEO and Google <a class="header-anchor" href="#seo-and-google">#</a></h3>
+<h2 id="seo-and-google" tabindex="-1">SEO and Google <a class="header-anchor" href="#seo-and-google">#</a></h2>
 <p>Before GDPR, security and data breaches were on everybody’s radar, SEO improvements were the main benefit of having a secure website. Over the last ten years, Google made several efforts to push SSL certificates, and today it is the defacto standard for websites.</p>
-<h4 id="a-weak-ranking-signal" tabindex="-1">A weak ranking signal <a class="header-anchor" href="#a-weak-ranking-signal">#</a></h4>
+<h3 id="a-weak-ranking-signal" tabindex="-1">A weak ranking signal <a class="header-anchor" href="#a-weak-ranking-signal">#</a></h3>
 <p>Earlier in 2014, Google already documented that HTTPS was a weak signal which could improve your position on the SERPs.\n<a href="%22https://developers.google.com/search/blog/2014/08/https-as-ranking-signal%22">Developers google : https as ranking signal</a>
 Having a TLS certificate does not mean your website automatically gets on the first page of Google. But if you are competing for a specific keyword, and your competitor’s website is not on HTTPS, it might just be the tiebreaker.</p>
-<h4 id="google-chrome-thinks-your-website-is-not-secure" tabindex="-1">Google Chrome thinks your website is “not secure” <a class="header-anchor" href="#google-chrome-thinks-your-website-is-not-secure">#</a></h4>
+<h3 id="google-chrome-thinks-your-website-is-not-secure" tabindex="-1">Google Chrome thinks your website is “not secure” <a class="header-anchor" href="#google-chrome-thinks-your-website-is-not-secure">#</a></h3>
 <p>Insecure website showing &quot;Not secured&quot; in the URL bar of the brwoser.\nIn July 2018, Google Chrome started labelling websites lacking an SSL certificate as “not secure”. In addition to Chrome, other browsers have implemented similar notifications for sites without valid SSL certificates.
 In other words, Google actively pushes websites to set up HTTPS. And since most if not all browsers are these days based on Chrome, it is the defacto standard.
 Trust is still important for whether customers purchase goods online or not. Last year the UN reported that at least 30 % of users are unwilling to buy online due to a lack of trust. So if your website is actively labelled as untrustworthy, it isn’t going to do you any good.</p>
-<h3 id="downsides" tabindex="-1">Downsides? <a class="header-anchor" href="#downsides">#</a></h3>
+<h2 id="downsides" tabindex="-1">Downsides? <a class="header-anchor" href="#downsides">#</a></h2>
 <p>Did we mention that the cost of obtaining a certificate is free?\nIf you’d like to win an argument with someone, visit <a href="%22https://doesmysiteneedhttps.com/%22">https://doesmysiteneedhttps.com/</a></p>
-<h3 id="how-to-set-up-https-for-your-website" tabindex="-1">How to set up HTTPS for your website? <a class="header-anchor" href="#how-to-set-up-https-for-your-website">#</a></h3>
+<h2 id="how-to-set-up-https-for-your-website" tabindex="-1">How to set up HTTPS for your website? <a class="header-anchor" href="#how-to-set-up-https-for-your-website">#</a></h2>
 <p>Today, the easiest way to enable HTTPS is to move your DNS to Cloudflare. Unfortunately, that does not mean the website is entirely secure.
 The webserver running the website still requires a TLS certificate to enable traffic between Cloudflare and your server to be encrypted.
 Cloudflare does provide certificates to fix that issue, but there are other options such as Let’s encrypt or Zerrossl.</p>
-<h3 id="how-to-check-for-potential-mistakes" tabindex="-1">How to check for potential mistakes? <a class="header-anchor" href="#how-to-check-for-potential-mistakes">#</a></h3>
+<h2 id="how-to-check-for-potential-mistakes" tabindex="-1">How to check for potential mistakes? <a class="header-anchor" href="#how-to-check-for-potential-mistakes">#</a></h2>
 <p>Once you have your website set up or migrated to HTTPS, it is easy to make mistakes.
 It might be that a redirect points to an HTTP URL, an incorrectly configured subdomain is still on HTTP, invalid canonical tags, or your SSL certificate is simply out of date.
 There are plenty of mistakes that can happen, and it is easy to check for common SSL mistakes.</p>
-<h4 id="check-for-http-pages-and-links" tabindex="-1">Check for HTTP pages and links: <a class="header-anchor" href="#check-for-http-pages-and-links">#</a></h4>
+<h3 id="check-for-http-pages-and-links" tabindex="-1">Check for HTTP pages and links: <a class="header-anchor" href="#check-for-http-pages-and-links">#</a></h3>
 <p><strong>With Google operators</strong>
 You can make your search very specific. You can search for all pages on your website indexed by Google that use the HTTP protocol in the URL:
 Try it: “<a href="%22https://www.google.com/search?q=site%3Asitefig.eu+inurl%3Ahttp%3A%2F%2F%22">site:sitefig.eu inurl:http://</a>”
@@ -2250,13 +2191,13 @@ Sign up for a free Sitefig account and you’ll get access to all the broken lin
     - @tailwindcss/forms
 -->
 
-<footer class="bg-white/60">
+<footer class="bg-white/60" id="footer">
 	<div
 		class="relative w-[94vw] max-w-4xl	mx-auto prose prose-lg bg-body/20 pt-10 px-4 pb-10 border-l border-solid border-gray-200">
 		<div class="lg:grid lg:grid-cols-3 gap-4">
 			<div class="col-span-1">
 				<div class="h-[40px] relative w-[94vw] max-w-4xl	mx-auto flex items-stretch justify-between leading-[40px]">
-					<a href="/" aria-expanded="false" aria-control="branding"
+					<a href="/" aria-expanded="false"
 						 class="relative w-[156px] h-[40px] bg-primary overflow-hidden rounded pt-[7px] pl-[8px] pr-[12px]">
 						<svg version="1.1" viewBox="0 0 199.02 40" xmlns="http://www.w3.org/2000/svg">
 							<defs>
@@ -2330,6 +2271,6 @@ Sign up for a free Sitefig account and you’ll get access to all the broken lin
 		</div>
 	</div>
 </footer>
-<!-- This page `/blog/why-you-need-https/` was built on 2024-09-25T03:13:26.473Z -->
+<!-- This page `/blog/why-you-need-https/` was built on 2024-09-25T03:40:08.844Z -->
 </body>
 </html>
