@@ -9,7 +9,7 @@ summary:  "Learn why businesses must comply with the European Accessibility Act 
 
 ## What Businesses Need to Know and How to Prepare for 2025
 
-As a consultant and Saas founder, I can confidently say that the [European Accessibility Act (EAA)][2] represents a significant shift in the digital landscape.
+As a consultant and Saas founder, I can confidently say that the [European Accessibility Act (EAA)](https://ec.europa.eu/social/main.jsp?catId=1202) represents a significant shift in the digital landscape.
 
 It's not just another regulation; it's a transformative mandate that will reshape how businesses approach digital products.
 
@@ -72,7 +72,7 @@ From this date, businesses offering services or products in the EU must comply w
 
 2.  **Inclusion and Market Expansion**
 
-Adhering to the EAA is not just about avoiding penalties; it's about embracing inclusivity. According to [Eurostat, over 27% of the EU population has some form of disability][10]. Ignoring accessibility means limiting your potential market and alienating a significant portion of your audience. By complying with the EAA, you'll open your products and services to more customers, including those with disabilities, temporary impairments, or situational needs.
+Adhering to the EAA is not just about avoiding penalties; it's about embracing inclusivity. According to [Eurostat, over 27% of the EU population has some form of disability](https://www.consilium.europa.eu/en/infographics/disability-eu-facts-figures/#:~:text=How%20many%20people%20have%20a,people%20adults%20in%20the%20EU.). Ignoring accessibility means limiting your potential market and alienating a significant portion of your audience. By complying with the EAA, you'll open your products and services to more customers, including those with disabilities, temporary impairments, or situational needs.
 
 3**Competitive Edge and Innovation**
 
