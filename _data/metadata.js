@@ -1,6 +1,6 @@
 module.exports = {
 	title: "sitefig.net",
-	url: "https://ww.sitefig.net/",
+	url: "https://www.sitefig.net/",
 	language: "en",
 	description: "Sitefig blog",
 	author: {
